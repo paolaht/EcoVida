@@ -1,0 +1,41 @@
+.vertical ul {
+    list-style-type: none;
+    margin: 52px 0 0 0;
+    padding: 0;
+    width: 17%;
+    background-color: #1D272D;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    left: 0;
+    border-right: 1px solid transparent;
+    border-color: #1C242B;
+}
+
+ .vertical li p {
+    display: block;
+    color: #4D6073;
+    padding: 10px 0 0 10px;
+    text-decoration: none;
+    font-size: 14;
+    margin-bottom: 0px;
+
+}
+.vertical li a {
+    display: block;
+    color: #fff;
+    padding: 16px 30px;
+    text-decoration: none;
+    font-size: 14;
+
+}
+
+.vertical li a.active {
+    background-color: #2B3942;
+    color: #fff;
+}
+
+.vertical li a:hover:not(.active) {
+    background-color: #2B3942;
+    color: #fff;
+}

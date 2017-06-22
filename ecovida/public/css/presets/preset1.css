@@ -1,0 +1,57 @@
+a,
+#home-slider .caption h1 span,
+#caracteristicas-carousel .item span,
+#footer .footer-bottom,  .close-folio-item:hover,
+.single-table.featured .btn.btn-primary,
+.contact-info ul li a:hover,
+#footer .footer-bottom a  {
+  color: #008D91;
+}
+
+.btn.btn-primary:hover,
+.btn-submit:hover {
+  background-color:#00A3A6;
+}
+
+a:hover, a:focus {
+	color: #00A3A6;
+}
+
+.main-nav,
+.progress-bar.progress-bar-primary,
+.single-table.featured,
+.btn.btn-primary,
+.caracteristicas-icon .fa-caracteristicas,
+.caracteristicas-left-control:hover, .caracteristicas-right-control:hover,
+.post-icon,
+.entry-header .date:after,
+.btn-loadmore:hover,
+.btn-submit,
+#footer,
+.caption .btn-start:hover,
+.left-control:hover,
+.right-control:hover,
+.folio-overview a:hover {
+  background-color:#00A3A6;
+}
+
+.main-nav-constructora, .main-nav-calentadores
+{
+background-color: transparent;
+}
+
+.caracteristicas-left-control:hover,
+.caracteristicas-right-control:hover,
+.btn-loadmore:hover  {
+	border: 1px solid #00A3A6;
+}
+
+.caption .btn-start:hover,
+.left-control:hover,
+.right-control:hover {
+	border-color: #00A3A6;
+}
+
+.caracteristicas-icon .fa-caracteristicas:after {
+	border-color: #00A3A6 transparent transparent;
+}

@@ -1,0 +1,566 @@
+/**NAV***/
+
+.navbar-nav li a:hover,
+.navbar-nav li a:focus {
+  outline:none;
+  outline-offset: 0;
+  text-decoration:none;
+  background: transparent;
+}
+
+.navbar-right li a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.navbar-right li.active a {
+  background-color: rgba(0,0,0,0);
+}
+
+.navbar-brand h1 {
+  margin-top: 5px;
+}
+
+
+
+/*************************
+********Home CSS**********
+**************************/
+#home{
+
+    background-image: url(../images/ahorradores/inicio.jpg);
+}
+.calent{
+  background: rgba(0,0,0,.5);}
+
+.caption {
+  left: 0;
+  right: 0;
+  text-align: left;
+  text-transform: uppercase;
+  z-index: 15;
+  font-size: 18px;
+  font-weight: 200;
+  color: #fff;
+  padding: 0 5% ;
+
+  margin-bottom: 15%;
+}
+
+ .caption h1 {
+  color: #fff;
+  font-size: 40px;
+  margin-bottom: 30px;
+  color: #DEE0F0;
+
+}
+
+.caption span {
+  font-size: 30px;
+  margin-top: 300px;
+  color: #fff;
+}
+
+.pre{
+  text-align: center;
+  margin-bottom: 15%;
+}
+
+
+
+
+
+.caption h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+
+  color: #DEE0F0;
+}
+
+.caption h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+
+  color: #DEE0F0;
+}
+
+.title{
+   font-size: 40px;
+  text-align: center;
+  color: #fff;
+}
+.subtitle{
+color:#fff;
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.distribuidor{
+color:#fff;
+  text-align: right;
+
+}
+
+
+.fa-angle-down {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  color: #fff;
+  display: inline-block;
+  width: 24px;
+  margin-left: -12px;
+  font-size: 24px;
+  line-height: 24px;
+  z-index: 999;
+  -webkit-animation: bounce 3000ms infinite;
+  animation: bounce 3000ms infinite;
+}
+/*************************
+********Service CSS*******
+**************************/
+
+
+.our-services .col-sm-4:hover .service-icon {
+  background-color: #333;
+}
+
+.our-services .col-sm-4 {
+  padding-bottom: 50px;
+}
+
+.our-services .col-sm-4:nth-child(4),
+.our-services .col-sm-4:nth-child(5),
+.our-services .col-sm-4:nth-child(6) {
+  border-bottom:0;
+  padding-top: 60px;
+}
+
+.our-services .col-sm-4:nth-child(3),
+.our-services .col-sm-4:nth-child(6) {
+  border-right:0;
+}
+
+.service-info h3 {
+  margin-top: 35px;
+}
+
+#servicios{
+
+	  background-image: url(../images/portfolio/portfolio-details.jpg);
+  padding:  0;
+}
+
+#servicios h1{
+	margin-top: 10%;
+}
+#serv{
+  background: rgba(0,0,0,.7);
+
+}
+
+/*************************
+*******Typography******
+**************************/
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #666;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+}
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.parallax {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.parallax,
+.parallax h1,
+.parallax h2,
+.parallax h3,
+.parallax h4,
+.parallax h5,
+.parallax h6 {
+  color: #fff;
+}
+
+.parallax input[type="text"],
+.parallax input[type="text"]:hover,
+.parallax input[type="email"],
+.parallax input[type="email"]:hover,
+.parallax input[type="url"],
+.parallax input[type="url"]:hover,
+.parallax input[type="password"],
+.parallax input[type="password"]:hover,
+.parallax textarea,
+.parallax textarea:hover {
+  font-weight: 300;
+  color: #fff;
+}
+
+.btn {
+  border: 0;
+  border-radius: 0;
+}
+
+.btn.btn-primary:hover {
+  background-color: #017fb5;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li a:focus {
+  outline:none;
+  outline-offset: 0;
+  text-decoration:none;
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+}
+
+a:focus,
+a:hover {
+  text-decoration: none;
+  outline: none
+}
+
+section {
+  padding: 90px 0;
+}
+
+.heading {
+  padding-bottom:90px;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+  background: #fff;
+}
+
+.preloader > i {
+  position: absolute;
+  font-size: 36px;
+  line-height: 36px;
+  top: 50%;
+  left: 50%;
+  height: 36px;
+  width: 36px;
+  margin-top: -15px;
+  margin-left: -15px;
+  display: inline-block;
+}
+
+/*************************
+*********Catalogos CSS*********
+**************************/
+
+
+.catalogos {
+  margin-bottom: 25px;
+}
+
+
+.catalogo {
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 30%;
+}
+
+.catalogo:hover .social-icons ul li a.facebook {
+  background-color: #3b5999;
+}
+.catalogo:hover .social-icons ul li a.twitter {
+  background-color: #2ac6f7;
+}
+.catalogo:hover .social-icons ul li a.dribbble {
+  background-color: #ff5b92;
+}
+.catalogo:hover .social-icons ul li a.linkedin {
+  background-color: #036dc0;
+}
+.catalogo:hover .social-icons ul li a.rss {
+  background-color: #ff6b00;
+}
+
+.catalogo-image{
+
+  border-radius: 4px;
+  display: inline-block;
+  height: 200px;
+  line-height: 200px;
+  width: 200px;
+}
+
+.catalogo-construc-image{
+  border-radius: 2px;
+  display: inline-block;
+  height: 220px;
+  line-height: 220px;
+  width: 320px;
+}
+
+
+#Calentadores, #Paneles, .img-responsive {
+  width: 100%;
+  padding-top: 0;
+}
+
+.info h3 {
+  margin-top: 35px;
+}
+
+.info h4 {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #999;
+}
+
+.load-more {
+  display:block;
+  text-align: center;
+  margin-top: 70px;
+}
+
+.btn-loadmore {
+  border: 1px solid #f2f2f2;
+  color: #666666;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 125px;
+  text-transform: uppercase;
+}
+
+.btn-loadmore:hover {
+  color:#fff;
+}
+/*************************
+**********Contact CSS*****
+**************************/
+
+#contact {
+  padding:0;
+}
+
+#google-map {
+  height: 350px;
+}
+
+#contact-us {
+  background-image:url(../images/contact-bg.jpg);
+  padding-bottom: 90px;
+}
+
+#contact-us .heading {
+  padding-top: 95px;
+}
+
+.form-control {
+  background-color: transparent;
+  border-color: rgba(255,255,255,.1);
+  height: 50px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+textarea.form-control {
+  min-height: 180px;
+  resize:none;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group2 {
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  padding-left:70px;
+  font-weight: 300;
+}
+
+ul.address {
+  margin-top: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info ul li {
+  margin-bottom: 8px;
+}
+
+.contact-info ul li a {
+  color: #fff;
+}
+
+.btn-submit {
+  display: block;
+  padding: 12px;
+  width: 100%;
+  color: #fff;
+  border:0;
+  margin-top: 40px;
+}
+
+#footer {
+  color:#fff;
+}
+
+.footer-top {
+  position: relative;
+  padding:30px 0
+}
+
+#footer .footer-bottom {
+  background-color: #fff;
+  padding: 20px 0 10px;
+}
+
+#footer .footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/*** Vista
+***/
+#vista_panel{
+margin-top: 5%;
+}
+
+.vista_imagen{
+    height: 50%;
+    margin-top: 5%;
+    }
+
+/*************************
+**********Blog CSS********
+**************************/
+
+.post-thumb {
+  position: relative;
+}
+
+/*.post-icon {
+  position: absolute;
+  top:10px;
+  right:10px;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  border-radius:4px;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+}
+
+.post-meta {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.post-meta span {
+  margin-right: 16px;
+}*/
+
+#post-carousel .carousel-indicators {
+  bottom: 3px;
+}
+
+.carousel-inner{
+  margin-top: 8%;
+}
+.carousel-indicators li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    /* cursor: pointer; */
+    background-color: #000 \9;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid #252951;
+    border-radius: 10px;
+text-align: center;
+  }
+
+  .carousel-indicators li.active {
+
+    background-color: #252951;
+    border-radius: 10px;
+
+  }
+
+.blog-left-control, .blog-right-control {
+  position: absolute;
+  top: 45%;
+  width: 30px;
+  text-align: center;
+  color: #fff;
+}
+
+.blog-left-control {
+  left: 0;
+}
+
+.blog-right-control {
+  right: 0;
+}
+
+.blog-left-control:hover, .blog-right-control:hover {
+  color: #fff;
+}
+
+.titulo-garantia{
+  color:#252951;
+  text-align: center;
+  margin-bottom: 5%
+}
+
+.titulo-garantia2{
+  color:#252951;
+  text-align: left;
+  margin-bottom: 5%
+}
+
+.contenido{
+  text-align: justify;
+}
+

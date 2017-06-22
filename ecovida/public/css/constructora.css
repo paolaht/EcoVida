@@ -1,0 +1,345 @@
+/**NAV***/
+
+.navbar-nav li a:hover,
+.navbar-nav li a:focus {
+  outline:none;
+  outline-offset: 0;
+  text-decoration:none;
+  background: transparent;
+}
+
+.navbar-right li a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.navbar-right li.active a {
+  background-color: rgba(0,0,0,0);
+}
+
+.navbar-brand h1 {
+  margin-top: 5px;
+}
+
+main-nav
+{
+	position:fixed;
+}
+
+.fa-angle-down {
+  position: relative;
+  left: 50%;
+  top:8%;
+  bottom: 50px;
+  color: #fff;
+  display: inline-block;
+  width: 24px;
+  margin-left: -12px;
+  font-size: 24px;
+  line-height: 24px;
+  z-index: 999;
+  -webkit-animation: bounce 3000ms infinite;
+  animation: bounce 3000ms infinite;
+}
+
+.main-nav-constructora
+{
+  margin-left:  10%;
+}
+/*************************
+*******Typography******
+**************************/
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #666;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+}
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.parallax {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.parallax,
+.parallax h1,
+.parallax h2,
+.parallax h3,
+.parallax h4,
+.parallax h5,
+.parallax h6 {
+  color: #fff;
+}
+
+.parallax input[type="text"],
+.parallax input[type="text"]:hover,
+.parallax input[type="email"],
+.parallax input[type="email"]:hover,
+.parallax input[type="url"],
+.parallax input[type="url"]:hover,
+.parallax input[type="password"],
+.parallax input[type="password"]:hover,
+.parallax textarea,
+.parallax textarea:hover {
+  font-weight: 300;
+  color: #fff;
+}
+
+.btn {
+  border: 0;
+  border-radius: 0;
+}
+
+.btn.btn-primary:hover {
+  background-color: #017fb5;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li a:focus {
+  outline:none;
+  outline-offset: 0;
+  text-decoration:none;
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+}
+
+a:focus,
+a:hover {
+  text-decoration: none;
+  outline: none
+}
+
+section {
+  padding: 90px 0;
+}
+
+.heading {
+  padding-bottom:5%;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+  background: #fff;
+}
+
+.preloader > i {
+  position: absolute;
+  font-size: 36px;
+  line-height: 36px;
+  top: 50%;
+  left: 50%;
+  height: 36px;
+  width: 36px;
+  margin-top: -15px;
+  margin-left: -15px;
+  display: inline-block;
+}
+
+/*************************
+**********Contact CSS*****
+**************************/
+
+#contact {
+  padding-top: 45px;
+  padding-bottom: 0;
+}
+
+#google-map {
+  height: 350px;
+}
+
+#contact-us {
+  background-image:url(../images/contact-bg.jpg);
+  padding-bottom: 90px;
+}
+
+#contact-us .heading {
+  padding-top: 95px;
+}
+
+.form-control {
+  background-color: transparent;
+  border-color: rgba(255,255,255,.1);
+  height: 50px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+textarea.form-control {
+  min-height: 180px;
+  resize:none;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group2 {
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  padding-left:70px;
+  font-weight: 300;
+}
+
+ul.address {
+  margin-top: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info ul li {
+  margin-bottom: 8px;
+}
+
+.contact-info ul li a {
+  color: #fff;
+}
+
+.btn-submit {
+  display: block;
+  padding: 12px;
+  width: 100%;
+  color: #fff;
+  border:0;
+  margin-top: 40px;
+}
+
+#footer {
+  color:#fff;
+}
+
+.footer-top {
+  position: relative;
+  padding:30px 0
+}
+
+#footer .footer-bottom {
+  background-color: #fff;
+  padding: 20px 0 10px;
+}
+
+#footer .footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/**Constructora**/
+#Constructora
+{
+   padding:  0;
+}
+
+#home{
+
+    background-image: url(../images/construcciones/inicio.jpg);
+}
+
+#Constructora h1{
+  margin-top: 10%;
+}
+#const{
+  background: rgba(0,0,0,.7);
+
+}
+
+.info-const{
+  text-align: left;
+  margin-bottom: 5%;
+}
+
+.info-const .col-sm-4:hover .service-icon {
+  background-color: #333;
+}
+
+.info-const .col-sm-4 {
+  padding-bottom: 50px;
+}
+
+.info-const .col-sm-4:nth-child(4),
+.info-const .col-sm-4:nth-child(5),
+.info-const .col-sm-4:nth-child(6) {
+  border-bottom:0;
+  padding-top: 80px;
+}
+
+.info-const .col-sm-4:nth-child(3),
+.info-const .col-sm-4:nth-child(6) {
+  border-right:0;
+}
+
+/**MODELOS**/
+#Modelos{
+  text-align: center;
+}
+
+.catalogo{
+  margin-bottom: 20%;
+}
+
+/** video**/
+.video
+{
+  margin-top:auto;
+
+}
+
+.video iframe
+{
+  height: 300px;
+width: 500px;
+}
+
+/**alianzas**/
+.alianzas-image{
+
+  display: inline-block;
+  font-size: 36px;
+  height: 90px;
+  line-height: 90px;
+  width: 90px;
+  margin-bottom: 50px;
+}
+
+.alianzas-image img{
+margin: 0 auto;
+
+}
+
+.contenido{
+  text-align: justify;
+}

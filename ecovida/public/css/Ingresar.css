@@ -1,0 +1,17 @@
+#ingresar {
+  background-image:url(../images/contact-bg.jpg);
+  padding-bottom: 90px;  
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 2037px;
+}
+
+
