@@ -41,24 +41,35 @@
 
 				<ul class="nav navbar-nav navbar-right">
 
-					<li class="mensajes"><a href="{{ url('contenidos') }}"><i class="fa fa-envelope"></i> </a></li>
-					<!--@if (Auth::guest())-->
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Paola<span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{ url('/auth/logout') }}">Cerrar Sesión</a></li>
-							</ul>
-						</li>
-					<!--@endif-->
+					@if (Auth::guest())
+						<li><a href="{{ url('/auth/login') }}">Iniciar Sesión</a></li>
+						<li><a href="{{ url('/auth/register') }}">Registrarme</a></li>
+					@else
+					<li class="sobre"><a href="{{ url('contenidos') }}"><img src="images/note.png" alt=""> </a></li>
+				<li class="usuario"><img src="images/user.png" alt=""></li>
+					<li ><a href=""> {{ Auth::user()->name }}</a></li>
+					<li style="background: #009797;"><a href="{{ url('/auth/logout') }}">Cerrar Sesión</a></li>
+
+
+						<!--<li class="dropdown">-->
+						<!--	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>-->
+						<!--	<ul class="dropdown-menu" role="menu">-->
+
+						<!--	</ul>-->
+						<!--</li>-->
+					@endif
 				</ul>
 			</div>
 		</div>
 	</nav>
 	</div>
 <div class="row">
+		@if (!Auth::guest())
+
+	@if (Auth::user()->tipo=="Admin")
 	<div class="col-sm-2 vertical" >
 <ul>
-		<li><p>CONTENIDO DEL SITIO</p></li>
+		<li><p>CONTENIDO DEL SITIO </p></li>
 	<li><a href="{{ url('contenidos') }}">Contenidos</a></li>
 	<li><a href="{{ url('contactos') }}">Contacto</a></li>
 	  	<li><a href="{{ url('alianzas') }}">Alianzas</a></li>
@@ -72,6 +83,8 @@
 
 </ul>
 	</div>
+		@endif
+	@endif
 	<div class="col-md-offset-3 col-sm-8">
 	@yield('content')
 	</div>

@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateContenidoRequest;
 use Illuminate\Http\Request;
 use App\Libraries\Repositories\ContenidoRepository;
-
+use App\Libraries\Repositories\AlianzaRepository;
 use App\Libraries\Repositories\ContactoRepository;
 use Mitul\Controller\AppBaseController;
 use Response;
@@ -16,11 +16,13 @@ class ContenidoController extends AppBaseController
 	/** @var  ContenidoRepository */
 	private $contenidoRepository;
 	private $contactoRepository;
+	private $alianzaRepository;
 
-	function __construct(ContenidoRepository $contenidoRepo, ContactoRepository $contactoRepo)
+	function __construct(ContenidoRepository $contenidoRepo, ContactoRepository $contactoRepo,AlianzaRepository $alianzaRepo)
 	{
 		$this->contenidoRepository = $contenidoRepo;
 		$this->contactoRepository = $contactoRepo;
+			$this->alianzaRepository = $alianzaRepo;
 	}
 
 	/**
@@ -185,6 +187,9 @@ class ContenidoController extends AppBaseController
 							$view->teléfono = $contacto->teléfono;
 								$view->correo = $contacto->correo;
 		}
+
+		$alianzas = $this->alianzaRepository->all();
+		$view->alianzas = $alianzas;
 
 		return $view;
 	}

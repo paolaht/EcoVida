@@ -10,11 +10,11 @@ a,
 
 .btn.btn-primary:hover,
 .btn-submit:hover {
-  background-color:#00A3A6;
+  background-color:#00B1B3;
 }
 
 a:hover, a:focus {
-	color: #00A3A6;
+	color: #00B1B3;
 }
 
 .main-nav,
@@ -32,7 +32,7 @@ a:hover, a:focus {
 .left-control:hover,
 .right-control:hover,
 .folio-overview a:hover {
-  background-color:#00A3A6;
+  background-color:#00B1B3;
 }
 
 .main-nav-constructora, .main-nav-calentadores
@@ -43,15 +43,15 @@ background-color: transparent;
 .caracteristicas-left-control:hover,
 .caracteristicas-right-control:hover,
 .btn-loadmore:hover  {
-	border: 1px solid #00A3A6;
+	border: 1px solid #00B1B3;
 }
 
 .caption .btn-start:hover,
 .left-control:hover,
 .right-control:hover {
-	border-color: #00A3A6;
+	border-color: #00B1B3;
 }
 
 .caracteristicas-icon .fa-caracteristicas:after {
-	border-color: #00A3A6 transparent transparent;
+	border-color: #00B1B3 transparent transparent;
 }

@@ -3,7 +3,7 @@
     margin: 52px 0 0 0;
     padding: 0;
     width: 17%;
-    background-color: #1D272D;
+    background-color: #4D545D;
     position: fixed;
     height: 100%;
     overflow: auto;
@@ -14,7 +14,7 @@
 
  .vertical li p {
     display: block;
-    color: #4D6073;
+    color: #8F9EC2;
     padding: 10px 0 0 10px;
     text-decoration: none;
     font-size: 14;
@@ -31,11 +31,11 @@
 }
 
 .vertical li a.active {
-    background-color: #2B3942;
+    background-color: #424851;
     color: #fff;
 }
 
 .vertical li a:hover:not(.active) {
-    background-color: #2B3942;
+    background-color: #424851;
     color: #fff;
 }
