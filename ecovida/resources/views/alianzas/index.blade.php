@@ -23,11 +23,11 @@
 
                     @foreach($alianzas as $alianza)
 
-<div class="w3-panel w3-card col-sm-3 margen">
+<div class="w3-panel w3-card col-sm-3 alianzaCard">
       <div class="col-sm-10">
  </div>
 
-               <div class="col-sm-2 ">
+               <div class="col-sm-2 btn-Eliminar">
     <a href="{!! route('alianzas.delete', [$alianza->id]) !!}" onclick="return confirm('Estas seguro que quieres borrar esta alianza?')" style="float:right"><i class="glyphicon glyphicon-remove"></i></a>
      </div>
 

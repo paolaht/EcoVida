@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>EcoVida </title>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/animate.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/lightbox.css" rel="stylesheet">
@@ -26,76 +26,74 @@
 
   <body>
 
-    <!--.preloader-->
-    <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
-    <!--/.preloader-->
+   <!--.preloader-->
+  <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
+  <!--/.preloader-->
 
-    <header id="home">
-      <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="item active" style="background-image: url(images/slider/1.jpg)">
-            <div class="caption">
-              <h1 class="animated fadeInLeftBig">Bienvenido a <span>EcoVida</span></h1>
-              <p class="animated fadeInRightBig">Construcción - Calentadores Solares - Ahorradores de agua </p>
-              <a data-scroll class="btn btn-start animated fadeInUpBig" href="#EcoVida">Comenzar</a>
-            </div>
-          </div>
-          <div class="item" style="background-image: url(images/slider/2.jpg)">
-            <div class="caption">
-              <h1 class="animated fadeInLeftBig">EcoVida <span>Construcciones</span></h1>
-              <p class="animated fadeInRightBig">sdffg - sdfgfdg - dfgdfg - dfgdfgfdg</p>
-              <a data-scroll class="btn btn-start animated fadeInUpBig" href="#Constructora">Ir</a>
-            </div>
-          </div>
-          <div class="item" style="background-image: url(images/slider/3.jpg)">
-            <div class="caption">
-              <h1 class="animated fadeInLeftBig">EcoVida <span>Calentadores Solares</span></h1>
-              <p class="animated fadeInRightBig">sdffg - sdfgfdg - dfgdfg - dfgdfgfdg</p>
-              <a data-scroll class="btn btn-start animated fadeInUpBig" href="#Calentadores" target="_blank">Ir</a>
-            </div>
-          </div>
-          <div class="item" style="background-image: url(images/slider/4.jpg)">
-            <div class="caption">
-              <h1 class="animated fadeInLeftBig">EcoVida <span>Ahorradores de agua</span></h1>
-              <p class="animated fadeInRightBig">sdffg - sdfgfdg - dfgdfg - dfgdfgfdg</p>
-              <a data-scroll class="btn btn-start animated fadeInUpBig" href="#Ahorradores">Ir</a>
-            </div>
+  <header id="home">
+    <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="item active" style="background-image: url(images/slider/1.jpg)">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">Bienvenido a <span>EcoVida</span></h1>
+            <p class="animated fadeInRightBig">Construcción - Calentadores Solares - Ahorradores de agua </p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#EcoVida">Comenzar</a>
           </div>
         </div>
-        <a class="left-control" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-        <a class="right-control" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
-
-        <a id="tohash" href="#EcoVida"><i class="fa fa-angle-down"></i></a>
-
-      </div><!--/#home-slider-->
-      <div class="main-nav">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-
-            </button>
-            <a class="navbar-brand" href="index.php">
-              <h1><img class="img-responsive" src="images/logo.png" alt="logo"></h1>
-            </a>
-          </div>
-          <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="scroll active"><a href="#home">Inicio</a></li>
-              <li class="scroll"><a href="#EcoVida">Sobre nosotros</a></li>
-              <li class="scroll"><a href="#Constructora">Constructora</a></li>
-              <li class="scroll"><a href="#Calentadores">Calentadores</a></li>
-              <li class="scroll"><a href="#Ahorradores">Ahorradores</a></li>
-              <li class="scroll"><a href="{{ url('contenidos') }}">Ingresar</a></li>
-              <li class="scroll"><a href="#contact">Contacto</a></li>
-            </ul>
+        <div class="item" style="background-image: url(images/slider/2.jpg)">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">EcoVida <span>Construcciones</span></h1>
+            <p class="animated fadeInRightBig">sdffg - sdfgfdg - dfgdfg - dfgdfgfdg</p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#Constructora">Ir</a>
           </div>
         </div>
-      </div><!--/#main-nav-->
-    </header><!--/#home-->
+        <div class="item" style="background-image: url(images/slider/3.jpg)">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">EcoVida <span>Calentadores Solares</span></h1>
+            <p class="animated fadeInRightBig">sdffg - sdfgfdg - dfgdfg - dfgdfgfdg</p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#Calentadores">Ir</a>
+          </div>
+        </div>
+         <div class="item" style="background-image: url(images/slider/4.jpg)">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">EcoVida <span>Ahorradores de agua</span></h1>
+            <p class="animated fadeInRightBig">sdffg - sdfgfdg - dfgdfg - dfgdfgfdg</p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#Ahorradores">Ir</a>
+          </div>
+        </div>
+      </div>
+      <a class="left-control" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+      <a class="right-control" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
+
+      <a id="tohash" href="#EcoVida"><i class="fa fa-angle-down"></i></a>
+
+    </div><!--/#home-slider-->
+    <div class="main-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+
+          </button>
+          <a class="navbar-brand" href="#home">
+            <h1><img class="img-responsive" src="images/logo.png" alt="logo"></h1>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="scroll"><a href="#EcoVida">Sobre nosotros</a></li>
+            <li class="scroll"><a href="#Constructora">Constructora</a></li>
+            <li class="scroll"><a href="#Calentadores">Calentadores</a></li>
+            <li class="scroll"><a href="#Ahorradores">Ahorradores</a></li>
+            <li class="scroll"><a href="#contact">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </div><!--/#main-nav-->
+  </header><!--/#home-->
     <section id="EcoVida">
       <div class="container">
         <div class="heading wow fadeInUp text-center" data-wow-duration="1000ms" data-wow-delay="300ms">
@@ -259,7 +257,7 @@
     <div class="item">
       <div class="caption">
 
-        <a data-scroll class="btn btn-start animated fadeInUpBig" href="registrar.php" target="_blank">Ingresar</a>
+        <a data-scroll class="btn btn-start animated fadeInUpBig" href="{{ url('/auth/login') }}" target="_blank">Ingresar</a>
       </div>
     </div>
   </div>
@@ -572,37 +570,16 @@
       </div>-->
       <div class="text-center">
         <div class="row">
+          @foreach($alianzas as $alianza)
           <div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-            <div class="alianzas-image">
-             <img class="img-responsive" src="images/alianzas/1.jpg" alt="">
-           </div>
+           <img class="imgAlianzas" src="images<?=$alianza->imagen?>" alt="">
          </div>
-         <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="850ms">
-           <div class="alianzas-image">
-            <img class="img-responsive" src="images/alianzas/3.jpg" alt="">
-          </div>
-        </div>
+         @endforeach
 
-        <div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="550ms">
-          <div class="alianzas-image">
-            <img class="img-responsive" src="images/alianzas/2.jpg" alt="">
-          </div>
-        </div>
-        <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="650ms">
-         <div class="alianzas-image">
-          <img class="img-responsive" src="images/alianzas/5.jpg" alt="">
-        </div>
-      </div>
-      <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="750ms">
-       <div class="alianzas-image">
-        <img class="img-responsive" src="images/alianzas/4.jpg" alt="">
-      </div>
-    </div>
-    <div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="450ms">
-     <div class="alianzas-image">
-       <img class="img-responsive" src="images/alianzas/6.jpg" alt="">
-     </div>
-   </div>
+
+
+
+
  </div>
 </div>
 </div>
