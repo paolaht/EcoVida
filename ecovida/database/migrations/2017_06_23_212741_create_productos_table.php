@@ -19,8 +19,10 @@ class CreateProductosTable extends Migration {
 			$table->increments('id');
 			$table->string('tipo',150);
 			$table->string('nombre',150);
+			$table->string('imagen');
 			$table->text('caracteristicas');
 			$table->integer('precio');
+			$table->timestamps();
 		});
 	}
 
