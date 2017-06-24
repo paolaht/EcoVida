@@ -1,6 +1,6 @@
 .vertical ul {
     list-style-type: none;
-    margin: 52px 0 0 0;
+    margin: 55px 0 0 0;
     padding: 0;
     width: 17%;
     background-color: #4D545D;
@@ -14,7 +14,7 @@
 
  .vertical li p {
     display: block;
-    color: #8F9EC2;
+    color: #00B1B3;
     padding: 10px 0 0 10px;
     text-decoration: none;
     font-size: 14;

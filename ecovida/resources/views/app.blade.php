@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+	<title>Servicios EcoVida</title>
 
 <link href="{{ asset('/css/menuVertical.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
@@ -33,7 +33,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ url('principal') }}">EcoVida</a>
+				<a class="navbar-brand titulo" href="{{ url('principal') }}">EcoVida</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,10 +45,10 @@
 						<li><a href="{{ url('/auth/login') }}">Iniciar Sesión</a></li>
 						<li><a href="{{ url('/auth/register') }}">Registrarme</a></li>
 					@else
-					<li class="sobre"><a href="{{ url('contenidos') }}"><img src="images/note.png" alt=""> </a></li>
+					<li class="sobre"><a href="{{ url('mensajes') }}"><img src="images/note.png" alt=""> </a></li>
 				<li class="usuario"><img src="images/user.png" alt=""></li>
 					<li ><a href=""> {{ Auth::user()->name }}</a></li>
-					<li style="background: #009797;"><a href="{{ url('/auth/logout') }}">Cerrar Sesión</a></li>
+					<li style="background: #009797;height: 54px;"><a href="{{ url('/auth/logout') }}">Cerrar Sesión</a></li>
 
 
 						<!--<li class="dropdown">-->
@@ -69,6 +69,7 @@
 	@if (Auth::user()->tipo=="Admin")
 	<div class="col-sm-2 vertical" >
 <ul>
+	<li><p> </p></li>
 		<li><p>CONTENIDO DEL SITIO </p></li>
 	<li><a href="{{ url('contenidos') }}">Contenidos</a></li>
 	<li><a href="{{ url('contactos') }}">Contacto</a></li>

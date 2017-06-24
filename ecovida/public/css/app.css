@@ -1374,8 +1374,7 @@ pre code {
   overflow-y: scroll;
 }
 .container {
- margin-left: 5%;
-    padding: 52px 16px;
+    padding: 52px 0;
     height: auto;
     margin-top: 5%;
 }
@@ -4126,10 +4125,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-brand {
   color: #fff;
+  font
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #5e5e5e;
+  color: #4D545D;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
@@ -4137,10 +4137,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-nav > li > a {
   color: #fff;
+  font-weight: 500;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333333;
+  color: #4D545D;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -6254,6 +6255,10 @@ label,
   margin-bottom:3%;
 
 }
+.titulo{
+
+  font-size: x-large;
+}
 
 .margen{
   margin-left: 20px;
@@ -6325,3 +6330,4 @@ float: right;
 
     padding-left: 40px;
 }
+

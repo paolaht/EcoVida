@@ -50,3 +50,18 @@ Route::get('alianzas/{id}/delete', [
     'as' => 'alianzas.delete',
     'uses' => 'AlianzaController@destroy',
 ]);
+
+
+Route::resource('mensajes', 'MensajeController');
+
+Route::get('mensajes/{id}/delete', [
+    'as' => 'mensajes.delete',
+    'uses' => 'MensajeController@destroy',
+]);
+
+Route::resource('productos', 'ProductoController');
+
+Route::get('productos/{id}/delete', [
+    'as' => 'productos.delete',
+    'uses' => 'ProductoController@destroy',
+]);

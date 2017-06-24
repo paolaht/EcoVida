@@ -87,11 +87,13 @@ a:hover {
 }
 
 section {
-  padding: 90px 0;
+  padding: 95px 0;
+  margin: 10px 0;
+
 }
 
 .heading {
-  padding-bottom:90px;
+  padding-bottom:45px;
 }
 
 .preloader {
@@ -253,15 +255,50 @@ section {
 }
 
 .navbar-right li a {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 400;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    color: #00B1B3;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 15px;
+
+}
+.menuPrin
+{
+    background-color: #4D545D;
+    font-weight: 600;
+    padding:0px 50px;
+    height: 50px;
+}
+
+.menuPrin li:hover
+{
+    background-color: #393F46;
+}
+
+.menuSeg
+{
+      background-color: #f2f2f2;
+    font-weight: 500;
+    padding: 0px 180px;
+}
+
+
+.menuSeg li a
+{
+      color: #00B1B3;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 15px 30px;
+}
+
+.menuSeg li a:hover
+{
+    color: #4D545D;
 }
 
 .navbar-right li.active a {
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0,0,0,.1);
+    color: #4D545D;
+    font-size: larger;
 }
 
 .navbar-brand h1 {
@@ -693,7 +730,7 @@ section {
 ********Caracteristicas CSS*******
 **************************/
 #caracteristicas {
-  background-image: url(../images/twitter-bg.jpg);
+  background-image: url(../images/razones.jpg);
 }
 
 #caracteristicas > div {
