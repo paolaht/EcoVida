@@ -86,7 +86,7 @@
 	</div>
 		@endif
 	@endif
-	<div class="col-md-offset-3 col-sm-8">
+	<div class=" col-sm-8">
 	@yield('content')
 	</div>
 </div>

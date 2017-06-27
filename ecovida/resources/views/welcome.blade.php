@@ -83,21 +83,17 @@
         </div>
         <div class="menuPrin">
           <ul class="nav navbar-nav navbar-right">
-            	@if (Auth::guest())
             <li class="scroll"><a href="{{ url('/auth/login') }}" style="font-weight: 600;font-size: medium;color: #fff;">INGRESAR</a></li>
             <li class="scroll"><a href="{{ url('/auth/register') }}" style="font-weight: 600;font-size: medium;">REGISTRARME</a></li>
-             @else
-             <li class="scroll"><a href="{{ url('/app') }}" style="font-weight: 600;font-size: medium;color: #fff;"> {{ Auth::user()->name }}</a></li>
-            <li class="scroll"><a href="{{ url('/auth/logout') }}" style="font-weight: 600;font-size: medium;">CERRAR SESIÓN</a></li>
-              @endif
+
           </ul>
         </div>
           <div class="collapse navbar-collapse menuSeg">
           <ul class="nav navbar-nav navbar-right">
             <li class="scroll"><a href="#EcoVida">SOBRE NOSOTROS</a></li>
             <li class="scroll"><a href="#Constructora">CONSTRUCTORA</a></li>
-            <li class="scroll"><a href="#Calentadores">PANELES SOLARES</a></li>
-            <li class="scroll"><a href="#Ahorradores">AHORRADORES DE AGUA</a></li>
+            <li class="scroll"><a href="#Calentadores">CALENTADORES</a></li>
+            <li class="scroll"><a href="#Ahorradores">AHORRADORES</a></li>
             <li class="scroll"><a href="#contact">CONTACTO</a></li>
           </ul>
         </div>
@@ -107,7 +103,7 @@
     <section id="EcoVida">
       <div class="container">
         <div class="heading wow fadeInUp text-center" data-wow-duration="1000ms" data-wow-delay="300ms">
-          <h1 style="font-size:90px;color:#4D545D;margin-bottom: 50px;    margin-top: 90px">Eco<span style="color:#00B1B3">Vida</span></h1>
+          <h1 style="color:#4D545D;font-size:90px">Eco<span style="color:#00B1B3;font-size:90px">Vida</span></h1>
         </div>
         <div class="text-center our-services">
 
@@ -155,7 +151,6 @@
       </div>
     </section><!--/#services-->
     <section id="about-us" class="parallax">
-
       <div class="container">
         <div class="row">
           <div class="col-sm-8">
@@ -522,8 +517,8 @@
    <div id="contact-us" class="parallax">
     <div class="container">
       <div class="row">
-        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" style="padding-top: 35px;" data-wow-duration="1000ms" data-wow-delay="300ms">
-          <h2>Contactános</h2>
+        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <h2>Contacto</h2>
          </div>
       </div>
       <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">

@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -22,6 +24,8 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="images/favicon.ico">
   </head><!--/head-->
+
+
 
   <body>
     <!--.preloader-->
@@ -216,143 +220,14 @@
   </div>
 </section><!--/#services-->
 <section id="Productos">
- <section id="Calentadores">
-  <div class="container">
-    <div class="row">
-      <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
-        <h2>Calentadores Solares</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam</p>
-      </div>
-    </div>
-    <div class="catalogos">
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="catalogo wow flipInY" data-wow-duration="1000ms" data-wow-delay="300ms">
-            <div class="catalogo-image">
-              <img class="img-responsive" src="images/calentadores/1.jpg" alt="">
-            </div>
-            <div class="info">
-              <h3>dgthfgh</h3>
-              <h4>fdhgfh ft hfgjgh tyjtfhjghj</h4>
-              <p><a href="vista_panel.php">ver más...</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="catalogo wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
-            <div class="catalogo-image">
-              <img class="img-responsive" src="images/calentadores/2.jpg" alt="">
-            </div>
-            <div class="info">
-              <h3>dgthfgh</h3>
-              <h4>fdhgfh ft hfgjgh tyjtfhjghj</h4>
-              <p><a href="vista_panel.php">ver más...</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="catalogo wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
-            <div class="catalogo-image">
-              <img class="img-responsive" src="images/calentadores/3.jpg" alt="">
-            </div>
-            <div class="info">
-              <h3>dgthfgh</h3>
-              <h4>fdhgfh ft hfgjgh tyjtfhjghj</h4>
-              <p><a href="vista_panel.php">ver más...</a></p>
-            </div>
+  
+<!--Include del fragento con el catalogo de calentadores-->
+@include('productos.showCalentadores2')
 
-          </div>
-        </div>
+<!--Include del fragento con el catalogo de Paneles Solares-->
+@include('productos.showPaneles')
 
-        <div class="col-sm-3">
-          <div class="catalogo wow flipInY" data-wow-duration="1000ms" data-wow-delay="1100ms">
-            <div class="catalogo-image">
-              <img class="img-responsive" src="images/calentadores/4.jpg" alt="">
-            </div>
-            <div class="info">
-              <h3>dgthfgh</h3>
-              <h4>fdhgfh ft hfgjgh tyjtfhjghj</h4>
-              <p><a href="vista_panel.php">ver más...</a></p>
-            </div>
 
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="load-more wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
-      <a href="catalogo_calentadores.php" class="btn-loadmore"><i class="fa fa-repeat"></i> ver más</a>
-    </div>
-  </div>
-</section><!--/#Calentadores-->
-
-<section id="Paneles">
-  <div class="container">
-    <div class="row">
-      <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
-        <h2>Energia Solar Paneles Solares</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam</p>
-      </div>
-    </div>
-    <div class="catalogos">
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="catalogo wow flipInY" data-wow-duration="1000ms" data-wow-delay="300ms">
-            <div class="catalogo-image">
-              <img class="img-responsive" src="images/calentadores/1.jpg" alt="">
-            </div>
-            <div class="info">
-              <h3>dgthfgh</h3>
-              <h4>fdhgfh ft hfgjgh tyjtfhjghj</h4>
-              <p><a href="vista_panel.php">ver más...</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="catalogo wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
-            <div class="catalogo-image">
-              <img class="img-responsive" src="images/calentadores/2.jpg" alt="">
-            </div>
-            <div class="info">
-              <h3>dgthfgh</h3>
-              <h4>fdhgfh ft hfgjgh tyjtfhjghj</h4>
-              <p><a href="vista_panel.php">ver más...</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="catalogo wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
-            <div class="catalogo-image">
-              <img class="img-responsive" src="images/calentadores/3.jpg" alt="">
-            </div>
-            <div class="info">
-              <h3>dgthfgh</h3>
-              <h4>fdhgfh ft hfgjgh tyjtfhjghj</h4>
-              <p><a href="vista_panel.php">ver más...</a></p>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="col-sm-3">
-          <div class="catalogo wow flipInY" data-wow-duration="1000ms" data-wow-delay="1100ms">
-            <div class="catalogo-image">
-              <img class="img-responsive" src="images/calentadores/4.jpg" alt="">
-            </div>
-            <div class="info">
-              <h3>dgthfgh</h3>
-              <h4>fdhgfh ft hfgjgh tyjtfhjghj</h4>
-              <p><a href="vista_panel.php">ver más...</a></p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="load-more wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
-      <a href="catalogo_paneles.php" class="btn-loadmore"><i class="fa fa-repeat"></i> ver más</a>
-    </div>
-  </div>
-</section><!--/#paneles-->
 </section>
 <section id="contact">
  <!--/ <div id="google-map" class="wow fadeIn" data-latitude="52.365629" data-longitude="4.871331" data-wow-duration="1000ms" data-wow-delay="400ms"></div>-->

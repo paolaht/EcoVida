@@ -4,11 +4,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mensaje extends Model
 {
-    
+
 	public $table = "mensajes";
 
 	public $primaryKey = "id";
-    
+
 	public $timestamps = true;
 
 	public $fillable = [
@@ -17,14 +17,16 @@ class Mensaje extends Model
 		"fecha",
 		"texto",
 		"adjunto",
-		"tipoAdjunto"
+		"tipoAdjunto",
+		"leido"
 	];
 
 	public static $rules = [
 	    "usuario" => "required",
 		"tipo" => "required",
 		"fecha" => "required",
-		"texto" => "required"
+		"texto" => "required",
+		"leido" => "required"
 	];
 
 }

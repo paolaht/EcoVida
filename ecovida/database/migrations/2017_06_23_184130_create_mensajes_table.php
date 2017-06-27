@@ -22,6 +22,7 @@ class CreateMensajesTable extends Migration
 			$table->string('texto');
 			$table->integer('adjunto');
 			$table->string('tipoAdjunto');
+			$table->boolean('leido');
 			$table->timestamps();
 		});
 	}

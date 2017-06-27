@@ -5,6 +5,7 @@ use App\Http\Requests\CreateMensajeRequest;
 use Illuminate\Http\Request;
 use App\Libraries\Repositories\MensajeRepository;
 use Mitul\Controller\AppBaseController;
+use App\User;
 use Response;
 use Flash;
 
@@ -35,10 +36,11 @@ class MensajeController extends AppBaseController
 		$mensajes = $result[0];
 
 		$attributes = $result[1];
-
+		$usuarios = User::all();
 		return view('mensajes.index')
 		    ->with('mensajes', $mensajes)
-		    ->with('attributes', $attributes);;
+		    ->with('attributes', $attributes)
+		    ->with('usuarios',$usuarios);;
 	}
 
 	/**

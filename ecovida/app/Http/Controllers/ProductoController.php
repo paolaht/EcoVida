@@ -7,6 +7,7 @@ use App\Libraries\Repositories\ProductoRepository;
 use Mitul\Controller\AppBaseController;
 use Response;
 use Flash;
+use storage;
 
 class ProductoController extends AppBaseController
 {
@@ -65,6 +66,20 @@ class ProductoController extends AppBaseController
 		$producto = $this->productoRepository->store($input);
 
 		Flash::message('Producto saved successfully.');
+
+		$Imagen = new Imagen();
+
+
+		$img = $request->file('archivos[]');
+
+		$file_route = time().'_'.$img->getClientOriginalName();
+
+		Storage::disk('imgProductos')->put($file_route, $file_get_contents($img->getRealPath()));
+
+		$Imagen->imagens = $file_route;
+		$Imagen->save();
+
+
 
 		return redirect(route('productos.index'));
 	}

@@ -13,7 +13,7 @@
 <!--- Caracteristicas Field --->
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('caracteristicas', 'Caracteristicas:') !!}
-    {!! Form::text('caracteristicas', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('caracteristicas', null, ['class' => 'form-control']) !!}
 </div>
 
 <!--- Precio Field --->
@@ -22,8 +22,17 @@
     {!! Form::text('precio', null, ['class' => 'form-control']) !!}
 </div>
 
+<!--- Imagen Field --->
+<div class="form-group col-sm-6 col-lg-4">
+    {!! Form::label('imagen', 'Imagen:') !!}
+    {!! Form::file('imagen')!!}
+
+</div>
 
 <!--- Submit Field --->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
 </div>
+
+
+

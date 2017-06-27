@@ -27,7 +27,7 @@
                      
                     @foreach($productos as $producto)
                         <tr>
-                            <td>{!! $producto->tipo !!}</td>
+                    <td>{!! $producto->tipo !!}</td>
 					<td>{!! $producto->nombre !!}</td>
 					<td>{!! $producto->caracteristicas !!}</td>
 					<td>{!! $producto->precio !!}</td>

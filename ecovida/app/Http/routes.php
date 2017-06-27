@@ -65,3 +65,15 @@ Route::get('productos/{id}/delete', [
     'as' => 'productos.delete',
     'uses' => 'ProductoController@destroy',
 ]);
+
+
+
+Route::get('producto/upload', 'UploadController@uploadForm');
+Route::post('producto/upload', 'UploadController@uploadSubmit');
+
+Route::resource('usuarios', 'UsuarioController');
+
+Route::get('usuarios/{id}/delete', [
+    'as' => 'usuarios.delete',
+    'uses' => 'UsuarioController@destroy',
+]);

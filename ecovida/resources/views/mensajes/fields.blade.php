@@ -1,11 +1,12 @@
-<!--- Usuario Field --->
-<div class="form-group col-sm-6 col-lg-4">
-    {!! Form::hidden('usuario',  {{ $var }} , ['class' => 'form-control']) !!}
+
+     <div class="form-group col-sm-6 col-lg-4">
+    {!! Form::hidden('usuario',   $correo  , ['class' => 'form-control']) !!}
 </div>
 
 <!--- Tipo Field --->
+ {{--*/ $tipoUsuario =  Auth::user()->tipo  /*--}}
 <div class="form-group col-sm-6 col-lg-4">
-    {!! Form::hidden('tipo', 'Usuario', ['class' => 'form-control']) !!}
+    {!! Form::hidden('tipo', $tipoUsuario, ['class' => 'form-control']) !!}
 </div>
 
 <!--- Fecha Field --->
@@ -14,7 +15,7 @@
 </div>
 
 <!--- Texto Field --->
-<div class="form-group col-sm-6 col-lg-4">
+<div class="form-group col-sm-10 col-lg-8">
     {!! Form::textArea('texto', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -33,3 +34,4 @@
 <div class="form-group col-sm-12">
     {!! Form::submit('Enviar', ['class' => 'btn btn-primary']) !!}
 </div>
+
