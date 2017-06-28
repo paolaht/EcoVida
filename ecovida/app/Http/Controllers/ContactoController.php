@@ -5,6 +5,8 @@ use App\Http\Requests\CreateContactoRequest;
 use Illuminate\Http\Request;
 use App\Libraries\Repositories\ContactoRepository;
 use Mitul\Controller\AppBaseController;
+
+use App\Libraries\Repositories\MensajeRepository;
 use Response;
 use Flash;
 
@@ -14,9 +16,11 @@ class ContactoController extends AppBaseController
 	/** @var  ContactoRepository */
 	private $contactoRepository;
 
-	function __construct(ContactoRepository $contactoRepo)
+	private $mensajeRepository;
+	function __construct(ContactoRepository $contactoRepo,MensajeRepository $mensajeRepo)
 	{
 		$this->contactoRepository = $contactoRepo;
+		$this->mensajeRepository = $mensajeRepo;
 	}
 
 	/**
@@ -35,8 +39,16 @@ class ContactoController extends AppBaseController
 		$contactos = $result[0];
 
 		$attributes = $result[1];
+	 $input2 = $request->all();
 
+		$result2 = $this->mensajeRepository->search($input2);
+
+		$mensajes = $result2[0];
+
+		$attributes = $result2[1];
 		return view('contactos.index')
+			->with('mensajes', $mensajes)
+		    ->with('attributes', $attributes)
 		    ->with('contactos', $contactos)
 		    ->with('attributes', $attributes);;
 	}
@@ -95,8 +107,17 @@ class ContactoController extends AppBaseController
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($id, Request $request)
 	{
+		 $input2 = $request->all();
+
+		$result2 = $this->mensajeRepository->search($input2);
+
+		$mensajes = $result2[0];
+
+		$attributes = $result2[1];
+
+
 		$contacto = $this->contactoRepository->findContactoById($id);
 
 		if(empty($contacto))
@@ -105,7 +126,8 @@ class ContactoController extends AppBaseController
 			return redirect(route('contactos.index'));
 		}
 
-		return view('contactos.edit')->with('contacto', $contacto);
+		return view('contactos.edit')	->with('mensajes', $mensajes)
+		    ->with('attributes', $attributes)->with('contacto', $contacto);
 	}
 
 	/**

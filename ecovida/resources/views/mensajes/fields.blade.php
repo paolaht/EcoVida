@@ -1,17 +1,17 @@
 
      <div class="form-group col-sm-6 col-lg-4">
-    {!! Form::hidden('usuario',   $correo  , ['class' => 'form-control']) !!}
+    {!! Form::hidden('usuario',   null  , ['class' => 'form-control']) !!}
 </div>
 
 <!--- Tipo Field --->
  {{--*/ $tipoUsuario =  Auth::user()->tipo  /*--}}
 <div class="form-group col-sm-6 col-lg-4">
-    {!! Form::hidden('tipo', $tipoUsuario, ['class' => 'form-control']) !!}
+    {!! Form::hidden('tipo', null, ['class' => 'form-control']) !!}
 </div>
 
 <!--- Fecha Field --->
 <div class="form-group col-sm-6 col-lg-4">
-    {!! Form::hidden('fecha', '12323434', ['class' => 'form-control']) !!}
+    {!! Form::hidden('fecha', null, ['class' => 'form-control']) !!}
 </div>
 
 <!--- Texto Field --->

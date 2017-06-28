@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Libraries\Repositories\MensajeRepository;
 use Mitul\Controller\AppBaseController;
 use App\User;
+use App\Mensaje;
 use Response;
 use Flash;
 
@@ -101,13 +102,6 @@ class MensajeController extends AppBaseController
 	{
 		$mensaje = $this->mensajeRepository->findMensajeById($id);
 
-		if(empty($mensaje))
-		{
-			Flash::error('Mensaje not found');
-			return redirect(route('mensajes.index'));
-		}
-
-		return view('mensajes.edit')->with('mensaje', $mensaje);
 	}
 
 	/**
@@ -118,21 +112,14 @@ class MensajeController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function update($id, CreateMensajeRequest $request)
+	public function update($prueba)
 	{
-		$mensaje = $this->mensajeRepository->findMensajeById($id);
 
-		if(empty($mensaje))
-		{
-			Flash::error('Mensaje not found');
-			return redirect(route('mensajes.index'));
-		}
 
-		$mensaje = $this->mensajeRepository->update($mensaje, $request->all());
+		$mensaje = $this->mensajeRepository->update($prueba);
 
-		Flash::message('Mensaje updated successfully.');
+	Flash::message('En contenido se ha actualizado correctamente');
 
-		return redirect(route('mensajes.index'));
 	}
 
 	/**

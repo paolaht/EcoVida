@@ -105,15 +105,15 @@ var rObj = function (evt) {
 </script>
 
 
-
-
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <h1>Crear Nuevo Producto</h1>
     <hr>
-    <form method="POST" action="{{ route('productos.store') }}">
+ <!--   <form class="form-horizontal" action="guardarProductoYImagenes.php" method="GET" enctype="multipart/form-data" id="producto_form"> -->
+{!! Form::open(['route' => 'productos.store', 'enctype'=>'multipart/form-data']) !!}
+
       <div class="form-group">
-        <label name="tipo">Tipo:</label>
+        <label name="tipo">Tipsssso:</label>
         <input id="tipo" name="tipo" class="form-control">
       </div>
       <div class="form-group">
@@ -130,9 +130,6 @@ var rObj = function (evt) {
       </div>
 
 
-
-<script type="text/javascript"></script>
-
       <div class="form-group">
                                             <div class="inputGroupContainer form-control">
                                                 <div>
@@ -144,7 +141,7 @@ var rObj = function (evt) {
                                                     </dd>
                                                     <dt>
                                                         <a class="form-control" value="Add" onClick="addCampo()">+ Subir otra imagen</a>
-                                                        <!--<input type="button" value="Add" onclick="add()"/>-->
+
 
                                                     </dt>
                                                 </div>
@@ -152,9 +149,12 @@ var rObj = function (evt) {
                                         </div>
                                         <br/><br/><br/><br/>
                                         <span id="fooBar">&nbsp;</span>
+
+
       <input type="submit" value="Ingresar" class="btn btn-success btn-lg btn-block">
       <input type="hidden" name="_token" value="{{ Session::token() }}">
-    </form>
+    <!--</form>-->
+        {!! Form::close() !!}
   </div>
 </div>
 
@@ -165,11 +165,11 @@ var rObj = function (evt) {
 
 
 
-
+<!--
 
 
 <form action="/upload" method="post" enctype="multipart/form-data">
-    {{ csrf_field() }}
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
     Product name:
     <br />
     <input type="text" name="name" />
@@ -181,6 +181,6 @@ var rObj = function (evt) {
     <input type="submit" value="Upload" />
 </form>
 
-
+-->
 
 @endsection

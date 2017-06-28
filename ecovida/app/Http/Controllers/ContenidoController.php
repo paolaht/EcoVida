@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Libraries\Repositories\ContenidoRepository;
 use App\Libraries\Repositories\AlianzaRepository;
 use App\Libraries\Repositories\ContactoRepository;
+use App\Libraries\Repositories\MensajeRepository;
 use Mitul\Controller\AppBaseController;
 use Response;
 use Flash;
@@ -18,11 +19,13 @@ class ContenidoController extends AppBaseController
 	private $contactoRepository;
 	private $alianzaRepository;
 
-	function __construct(ContenidoRepository $contenidoRepo, ContactoRepository $contactoRepo,AlianzaRepository $alianzaRepo)
+	private $mensajeRepository;
+	function __construct(ContenidoRepository $contenidoRepo, ContactoRepository $contactoRepo,AlianzaRepository $alianzaRepo,MensajeRepository $mensajeRepo)
 	{
 		$this->contenidoRepository = $contenidoRepo;
 		$this->contactoRepository = $contactoRepo;
-			$this->alianzaRepository = $alianzaRepo;
+		$this->alianzaRepository = $alianzaRepo;
+		$this->mensajeRepository = $mensajeRepo;
 	}
 
 	/**
@@ -42,7 +45,18 @@ class ContenidoController extends AppBaseController
 
 		$attributes = $result[1];
 
+$input2 = $request->all();
+
+		$result2 = $this->mensajeRepository->search($input2);
+
+		$mensajes = $result2[0];
+
+		$attributes = $result2[1];
+
+
 		return view('contenidos.index')
+			->with('mensajes', $mensajes)
+		    ->with('attributes', $attributes)
 		    ->with('contenidos', $contenidos)
 		    ->with('attributes', $attributes);;
 	}
@@ -101,7 +115,7 @@ class ContenidoController extends AppBaseController
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($id,Request $request)
 	{
 		$contenido = $this->contenidoRepository->findContenidoById($id);
 
@@ -111,7 +125,19 @@ class ContenidoController extends AppBaseController
 			return redirect(route('contenidos.index'));
 		}
 
-		return view('contenidos.edit')->with('contenido', $contenido);
+		$input2 = $request->all();
+
+		$result2 = $this->mensajeRepository->search($input2);
+
+		$mensajes = $result2[0];
+
+		$attributes = $result2[1];
+
+
+
+
+		return view('contenidos.edit')->with('mensajes', $mensajes)
+		    ->with('attributes', $attributes)->with('contenido', $contenido);
 	}
 
 	/**

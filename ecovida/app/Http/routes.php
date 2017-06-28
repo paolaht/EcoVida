@@ -68,6 +68,7 @@ Route::get('productos/{id}/delete', [
 
 
 
+
 Route::get('producto/upload', 'UploadController@uploadForm');
 Route::post('producto/upload', 'UploadController@uploadSubmit');
 

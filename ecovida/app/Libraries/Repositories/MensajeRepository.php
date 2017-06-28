@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Libraries\Repositories;
-
-
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Contracts\Auth\Registrar;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Models\Mensaje;
 use Illuminate\Support\Facades\Schema;
 
@@ -72,11 +73,17 @@ class MensajeRepository
 	 *
 	 * @return Mensaje
 	 */
-	public function update($mensaje, $input)
+	public function update($prueba)
 	{
-		$mensaje->fill($input);
-		$mensaje->save();
 
+	$lines = preg_split('/[*]+/', $prueba);
+		$mensajes = Mensaje::all();
+		foreach($mensajes as $mensaje){
+		   if($lines[1]=="Admin" && $mensaje->tipo=="Cliente" && $mensaje->usuario==$lines[0]){
+		$mensaje->leido= 1;
+		$mensaje->save();
+		   }
+}
 		return $mensaje;
 	}
 }

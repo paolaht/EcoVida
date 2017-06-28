@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
-
+use App\Http\Requests;
+use App\Http\Requests\CreateMensajeRequest;
+use Illuminate\Http\Request;
+use App\Libraries\Repositories\MensajeRepository;
 class HomeController extends Controller {
 
 	/*
@@ -18,9 +21,11 @@ class HomeController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+	 	private $mensajeRepository;
+	public function __construct(MensajeRepository $mensajeRepo)
 	{
 		$this->middleware('auth');
+			$this->mensajeRepository = $mensajeRepo;
 	}
 
 	/**
@@ -28,9 +33,20 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+
+	public function index(Request $request)
 	{
-		return view('home');
+	   $input = $request->all();
+
+		$result = $this->mensajeRepository->search($input);
+
+		$mensajes = $result[0];
+
+		$attributes = $result[1];
+
+		return view('app')
+		    ->with('mensajes', $mensajes)
+		    ->with('attributes', $attributes);
 	}
 
 }

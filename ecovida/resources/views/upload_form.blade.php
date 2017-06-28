@@ -32,7 +32,7 @@
         </ul>
     @endif
 <form action="/ecovida/public/upload_form" method="post" enctype="multipart/form-data">
-{{ csrf_field() }}
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
     Product name:
     <br />
     <input type="text" name="name" />

@@ -33,7 +33,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand titulo" href="{{ url('principal') }}">EcoVida</a>
+				<a class="navbar-brand titulo" href="{{ url('welcome') }}">EcoVida</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,8 +45,26 @@
 						<li><a href="{{ url('/auth/login') }}">Iniciar Sesión</a></li>
 						<li><a href="{{ url('/auth/register') }}">Registrarme</a></li>
 					@else
-					<li class="sobre"><a href="{{ url('mensajes') }}"><img src="images/note.png" alt=""> </a></li>
-				<li class="usuario"><img src="images/user.png" alt=""></li>
+					 {{--*/ $sinLeer =  0;  /*--}}
+					 @foreach($mensajes as $mensaje)
+					 @if(Auth::user()->tipo=="Cliente")
+					 	@if($mensaje->leido==0 && $mensaje->usuario==Auth::user()->email && $mensaje->tipo=="Admin")
+						{{--*/ $sinLeer = $sinLeer +1;  /*--}}
+						@endif
+					@else
+						@if($mensaje->leido==0 && $mensaje->tipo=="Cliente")
+						{{--*/ $sinLeer = $sinLeer +1;  /*--}}
+						@endif
+					@endif
+				    @endforeach
+					 @if($sinLeer==0)
+					<li class="sobre"><a href="{{ url('mensajes') }}"><img src="images/mensajes/mensaje0.png" alt=""> </a></li>
+     				@endif
+					@if($sinLeer>=1)
+					<li class="sobre"><a href="{{ url('mensajes') }}"  style="padding-bottom: 0;"><img src="images/mensajes/mensaje1.png" alt=""> </a></li>
+     				@endif
+
+						<li class="usuario"><img src="images/user.png" alt=""></li>
 					<li ><a href=""> {{ Auth::user()->name }}</a></li>
 					<li style="background: #009797;height: 54px;"><a href="{{ url('/auth/logout') }}">Cerrar Sesión</a></li>
 

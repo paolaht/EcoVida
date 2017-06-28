@@ -32,6 +32,7 @@
                                           </div>
                                             </li>
                                 @else
+
                                             <li class="other">
                                         <div class="msg">
                                         <p>{!! $mensaje->texto !!}</p>
@@ -99,13 +100,43 @@
                @else
 
 <div class="row">
-
     <div class="col-sm-2 col-offset-sm-3 usuariosChat">
         <div class="tab">
           @foreach($usuarios as $usuario)
            @if( $usuario->tipo=="Cliente")
-              <button class="tablinks" onclick="verMensajes(event, '{!! $usuario->email !!}')">{!! $usuario->name !!} {!! $usuario->apellido !!}</button>
-         @endif
+               {{--*/ $sinLeer =  0;  /*--}}
+              @foreach($mensajes as $mensaje)
+						@if($mensaje->leido==0 && $mensaje->tipo=="Cliente" && $mensaje->usuario==$usuario->email)
+						{{--*/ $sinLeer = $sinLeer +1;  /*--}}
+						@endif
+				@endforeach
+				@if($sinLeer>=1)
+
+            {{--*/ $prueba =  $usuario->email."*".Auth::user()->tipo;  /*--}}
+             {!! Form::model($mensaje, ['route' => ['mensajes.update', $prueba], 'method' => 'patch']) !!}
+
+
+
+                 <button type="submit" class="tablinks" onclick="verMensajes(event, '{!! $usuario->email !!}')">{!! $usuario->name !!} {!! $usuario->apellido !!} <img src="images/mensajes/nuevo.png " style="    padding-left: 50px;" alt="">
+              </button>
+
+
+    {!! Form::close() !!}
+                @endif
+             @endif
+          @endforeach
+           @foreach($usuarios as $usuario)
+           @if( $usuario->tipo=="Cliente")
+               {{--*/ $sinLeer =  0;  /*--}}
+              @foreach($mensajes as $mensaje)
+						@if($mensaje->leido==0 && $mensaje->tipo=="Cliente" && $mensaje->usuario==$usuario->email)
+						{{--*/ $sinLeer = $sinLeer +1;  /*--}}
+						@endif
+				@endforeach
+				@if($sinLeer==0)
+				               <button class="tablinks" onclick="verMensajes(event, '{!! $usuario->email !!}')" >{!! $usuario->name !!} {!! $usuario->apellido !!}</button>
+                @endif
+             @endif
           @endforeach
 
         </div>
@@ -223,4 +254,6 @@ function verMensajes(evt, correoUsuario) {
  onload=function(){
   ;   if(window.parar)return;document.getElementById('vistaChat').scrollTop=document.getElementById('vistaChat').scrollHeight;
  }
+
+
 </script>

@@ -5,6 +5,7 @@ use App\Http\Requests\CreateAlianzaRequest;
 use Illuminate\Http\Request;
 use App\Libraries\Repositories\AlianzaRepository;
 use Mitul\Controller\AppBaseController;
+use App\Libraries\Repositories\MensajeRepository;
 use Response;
 use Flash;
 
@@ -13,10 +14,11 @@ class AlianzaController extends AppBaseController
 
 	/** @var  AlianzaRepository */
 	private $alianzaRepository;
-
-	function __construct(AlianzaRepository $alianzaRepo)
+	private $mensajeRepository;
+	function __construct(AlianzaRepository $alianzaRepo,MensajeRepository $mensajeRepo)
 	{
 		$this->alianzaRepository = $alianzaRepo;
+		$this->mensajeRepository = $mensajeRepo;
 	}
 
 	/**
@@ -26,6 +28,7 @@ class AlianzaController extends AppBaseController
 	 *
 	 * @return Response
 	 */
+
 	public function index(Request $request)
 	{
 	    $input = $request->all();
@@ -35,8 +38,18 @@ class AlianzaController extends AppBaseController
 		$alianzas = $result[0];
 
 		$attributes = $result[1];
+		$input2 = $request->all();
+
+		$result2 = $this->mensajeRepository->search($input2);
+
+		$mensajes = $result2[0];
+
+		$attributes = $result2[1];
+
 
 		return view('alianzas.index')
+		->with('mensajes', $mensajes)
+		    ->with('attributes', $attributes)
 		    ->with('alianzas', $alianzas)
 		    ->with('attributes', $attributes);;
 	}
@@ -46,10 +59,19 @@ class AlianzaController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
+$input2 = $request->all();
 
-		return view('alianzas.create');
+		$result2 = $this->mensajeRepository->search($input2);
+
+		$mensajes = $result2[0];
+
+		$attributes = $result2[1];
+
+		return view('alianzas.create')
+		->with('mensajes', $mensajes)
+		    ->with('attributes', $attributes);
 	}
 
 	/**

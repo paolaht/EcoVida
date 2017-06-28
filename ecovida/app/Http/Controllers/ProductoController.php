@@ -8,6 +8,8 @@ use Mitul\Controller\AppBaseController;
 use Response;
 use Flash;
 use storage;
+use DB;
+use App\Quotation;
 
 class ProductoController extends AppBaseController
 {
@@ -61,12 +63,15 @@ class ProductoController extends AppBaseController
 	 */
 	public function store(CreateProductoRequest $request)
 	{
-        $input = $request->all();
+   /*     CODIGO ORIGINAL
+   $input = $request->all();
 
 		$producto = $this->productoRepository->store($input);
 
 		Flash::message('Producto saved successfully.');
 
+		*/
+/*
 		$Imagen = new Imagen();
 
 
@@ -79,9 +84,55 @@ class ProductoController extends AppBaseController
 		$Imagen->imagens = $file_route;
 		$Imagen->save();
 
+*/
+  $tipo = $_POST["tipo"];
+    $nombre = $_POST["nombre"];
+    $caracteristicas = $_POST["caracteristicas"];
+    $precio = $_POST["precio"];
 
 
+
+
+
+DB::insert('INSERT INTO `productos`(`tipo`, `nombre`, `caracteristicas`, `precio`) VALUES (?, ?, ?, ?)', [$tipo, $nombre, $caracteristicas, $precio]);
+
+
+//ESTA COSA NO QUIERE FUNCIONAR NO LE DA LA GANA MOSTRAR EL RESULTADO TRAIDO DE LA BD
+//$row = DB::table('productos')->select('*')->get();
+//$row = DB::select("SELECT AUTO_INCREMENT AS LastId FROM information_schema.tables WHERE TABLE_SCHEMA = 'ecovida_bd' AND TABLE_NAME = 'productos')");
+$row = DB::table('information_schema.tables')->select('AUTO_INCREMENT AS LastId')->where('TABLE_SCHEMA', 'ecovida_bd')->where('TABLE_NAME', 'productos')->first();
+//$UltimoID = $row["LastId"] - 1;  //aca asigno el ultimo producto recuperado a la variable
+
+$row = DB::select('select 5');
+
+$users = DB::table('users')->get();
+
+
+
+$variable = "";
+foreach ($users as $user)
+{
+    $variable = var_dump($user->name);
+}
+
+
+$UltimoID = 0;
+
+
+$this->metodo($UltimoID);
+
+//$y = array_chunk($row, 1, 1);
+//var_dump( $y[0]);
+$result = var_dump($row);
+	echo file_put_contents("test.txt", $variable);
+
+
+
+
+/*		return redirect('guardarProductoYImagenes.php');
+*/
 		return redirect(route('productos.index'));
+
 	}
 
 	/**
@@ -171,5 +222,59 @@ class ProductoController extends AppBaseController
 
 		return redirect(route('productos.index'));
 	}
+
+	function metodo($ID_Producto) {
+   // if ($_POST["SeleccionGuarda"] <> '') {
+        $Directorio = public_path().'/images';
+  //$Directorio = "../IMG_FOTOS/fotos_publicas/";
+        //Preguntamos si nuetro arreglo 'archivos' fue definido
+        if (isset($_FILES["archivos"])) {
+            //de se asi, para procesar los archivos subidos al servidor solo debemos recorrerlo
+            //obtenemos la cantidad de elementos que tiene el arreglo archivos
+            $tot = count($_FILES["archivos"]["name"]);
+            //este for recorre el arreglo
+            for ($i = 0; $i < $tot; $i++) {
+                //con el indice $i, poemos obtener la propiedad que desemos de cada archivo
+                //para trabajar con este
+                $tmp_name = $_FILES["archivos"]["tmp_name"][$i];
+                $name = $_FILES["archivos"]["name"][$i];
+                ///En este lugar podemos ver la extesion del archivo subido por el usuario
+                $ext = strtolower(strrchr($name, "."));
+                //Este if preunta se las extensiones corresponden a imagnes: jpg,png, jpeg
+                if (($ext == ".jpg") or ( $ext == ".png") or ( $ext == ".jpeg")) {
+                    //se guarda en elservidor la imagen en la direccion fotos
+                    $newfile = $Directorio . $name;
+                    $ruta = $newfile;
+                    //pregunta si fue subido la imagen
+                    if (is_uploaded_file($tmp_name)) {
+                        //si no fue copiado correctamente mandamos un print advertiendo
+                        if (!copy($tmp_name, "$newfile")) {
+                            print "Error en transferencia de imagenes.";
+                            exit();
+                        } // if copy
+                        /////****
+
+
+                        $rua_img = $ruta;
+               //         $titulo_Imagen = $_POST['txtTitulo'];
+             //           $Descripcion_Imagen = $_POST['txtdescrip'];
+                        $fecha = date("d-m-Y");
+                        $modelo_id = 0000;
+
+                  //      DB::insert('INSERT INTO `Imagenes`(`tipo`, `nombre`, `caracteristicas`, `precio`) VALUES (?, ?, ?, ?)', [$tipo, $nombre, $caracteristicas, $precio]);
+                        DB::insert('INSERT INTO `imagens`(`imagen`, `producto_ID`, `modelo_ID`) VALUES (?, ?, ?)', [$ruta, $ID_Producto, $modelo_id]);
+
+                   //     $query = "INSERT INTO cms_imagenes (`ID_Incidente`, `ruta_img`, `titulo_Imagen`, `descripcion_Imagen`, `fecha_Img`) VALUES ('$ID_Producto', '$ruta', '$titulo_Imagen', '$Descripcion_Imagen','$fecha');";
+                   //     $resultado = mysqli_query($connection, $query) or die("Fallo inesperado: " . mysqli_error());
+                        //$conexion = mysql_close();
+                        //////****
+                    } // if is_up...
+                } else {
+                    echo("<b>El o los archivo(s) subidos al servidor No son validos</b> \n" . $ext . "sssssssss");
+                    exit();
+                }
+            }
+        }
+}
 
 }
