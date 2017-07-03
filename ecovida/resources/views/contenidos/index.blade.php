@@ -4,7 +4,7 @@
 @extends('app')
 
 @section('content')
-    <div class="container">
+    <div class="container central">
         @include('flash::message')
 
 

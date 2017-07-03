@@ -57,6 +57,24 @@ jQuery(function($) {
 		$('html, body').animate({scrollTop: $(this.hash).offset().top - 7}, 1400);
 		return false;
 	});
+	/*tabs mensajes
+$( function() {
+  var ultimaTabActiva = function(){
+    var data = sessionStorage.getItem('tabActiva');
+    return (data !== null)? data : 0;
+  }
+  $( "#tabs" ).tabs({
+
+    active: ultimaTabActiva()
+  });
+  $("#tabs").on('click', '.ui-tabs-tab', function(event) {
+      event.preventDefault();
+      var tabindex = $(this).data('index');
+    console.log(tabindex)
+      sessionStorage.setItem('tabActiva', tabindex);
+    });
+});
+*/
 
 	//Initiat WOW JS
 	new WOW().init();

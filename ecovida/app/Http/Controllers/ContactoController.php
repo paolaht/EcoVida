@@ -15,8 +15,8 @@ class ContactoController extends AppBaseController
 
 	/** @var  ContactoRepository */
 	private $contactoRepository;
-
 	private $mensajeRepository;
+	
 	function __construct(ContactoRepository $contactoRepo,MensajeRepository $mensajeRepo)
 	{
 		$this->contactoRepository = $contactoRepo;
@@ -39,13 +39,15 @@ class ContactoController extends AppBaseController
 		$contactos = $result[0];
 
 		$attributes = $result[1];
-	 $input2 = $request->all();
+		
+		$input2 = $request->all();
 
 		$result2 = $this->mensajeRepository->search($input2);
 
 		$mensajes = $result2[0];
 
 		$attributes = $result2[1];
+		
 		return view('contactos.index')
 			->with('mensajes', $mensajes)
 		    ->with('attributes', $attributes)
@@ -147,7 +149,6 @@ class ContactoController extends AppBaseController
 			Flash::error('Contacto not found');
 			return redirect(route('contactos.index'));
 		}
-
 		$contacto = $this->contactoRepository->update($contacto, $request->all());
 
 		Flash::message('Contacto updated successfully.');

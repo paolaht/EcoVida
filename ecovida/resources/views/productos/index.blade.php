@@ -24,7 +24,7 @@
                     <th width="50px">Action</th>
                     </thead>
                     <tbody>
-                     
+
                     @foreach($productos as $producto)
                         <tr>
                     <td>{!! $producto->tipo !!}</td>
@@ -32,6 +32,7 @@
 					<td>{!! $producto->caracteristicas !!}</td>
 					<td>{!! $producto->precio !!}</td>
                             <td>
+                                <a href="{!! route('productos.show', [$producto->id]) !!}"><i class="glyphicon glyphicon-open"></i></a>
                                 <a href="{!! route('productos.edit', [$producto->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                                 <a href="{!! route('productos.delete', [$producto->id]) !!}" onclick="return confirm('Are you sure wants to delete this Producto?')"><i class="glyphicon glyphicon-remove"></i></a>
                             </td>

@@ -83,6 +83,10 @@ class MensajeRepository
 		$mensaje->leido= 1;
 		$mensaje->save();
 		   }
+		     if($lines[1]=="Cliente" && $mensaje->tipo=="Admin" && $mensaje->usuario==$lines[0]){
+		$mensaje->leido= 1;
+		$mensaje->save();
+		   }
 }
 		return $mensaje;
 	}

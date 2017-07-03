@@ -44,8 +44,8 @@ class ContenidoController extends AppBaseController
 		$contenidos = $result[0];
 
 		$attributes = $result[1];
-
-$input2 = $request->all();
+		
+		$input2 = $request->all();
 
 		$result2 = $this->mensajeRepository->search($input2);
 

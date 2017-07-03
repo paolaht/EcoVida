@@ -35,13 +35,14 @@ class MensajeController extends AppBaseController
 		$result = $this->mensajeRepository->search($input);
 
 		$mensajes = $result[0];
-
+		$us = "";
 		$attributes = $result[1];
 		$usuarios = User::all();
 		return view('mensajes.index')
 		    ->with('mensajes', $mensajes)
 		    ->with('attributes', $attributes)
-		    ->with('usuarios',$usuarios);;
+		    ->with('usuarios',$usuarios)
+		     ->with('usuarioMensaje',$us);
 	}
 
 	/**
@@ -66,10 +67,12 @@ class MensajeController extends AppBaseController
         $input = $request->all();
 
 		$mensaje = $this->mensajeRepository->store($input);
-
+		$mensajes = $this->mensajeRepository->all();
 		Flash::message('Mensaje saved successfully.');
-
-		return redirect(route('mensajes.index'));
+		$usuarios = User::all();
+		return view('mensajes.index')
+		    ->with('usuarios',$usuarios)
+		    ->with('usuarioMensaje',$request->usuario)->with('mensajes', $mensajes);
 	}
 
 	/**
@@ -117,16 +120,23 @@ class MensajeController extends AppBaseController
 
 
 		$mensaje = $this->mensajeRepository->update($prueba);
-
+			$lines = preg_split('/[*]+/', $prueba);
+$correo =$lines[0];
 	Flash::message('En contenido se ha actualizado correctamente');
-
+	   	$mensajes = $this->mensajeRepository->all();
+		Flash::message('Mensaje saved successfully.');
+	$usuarios = User::all();
+		return view('mensajes.index')
+		    ->with('usuarios',$usuarios)
+		    ->with('usuarioMensaje',$correo)
+		    ->with('mensajes', $mensajes);
 	}
 
 	/**
 	 * Remove the specified Mensaje from storage.
 	 *
 	 * @param  int $id
-	 *
+	 *	
 	 * @return Response
 	 */
 	public function destroy($id)

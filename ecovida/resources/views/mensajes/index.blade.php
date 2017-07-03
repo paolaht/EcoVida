@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div>
  {{--*/$fecha = new \DateTime(); /*--}}
 
 
@@ -101,8 +101,10 @@
 
 <div class="row">
     <div class="col-sm-2 col-offset-sm-3 usuariosChat">
-        <div class="tab">
+        <div class="tab" id="tabs">
+            {{--*/ $numeroUsuario =  0;  /*--}}
           @foreach($usuarios as $usuario)
+
            @if( $usuario->tipo=="Cliente")
                {{--*/ $sinLeer =  0;  /*--}}
               @foreach($mensajes as $mensaje)
@@ -116,9 +118,9 @@
              {!! Form::model($mensaje, ['route' => ['mensajes.update', $prueba], 'method' => 'patch']) !!}
 
 
-
-                 <button type="submit" class="tablinks" onclick="verMensajes(event, '{!! $usuario->email !!}')">{!! $usuario->name !!} {!! $usuario->apellido !!} <img src="images/mensajes/nuevo.png " style="    padding-left: 50px;" alt="">
-              </button>
+ {{--*/ $numeroUsuario =  $numeroUsuario + 1;  /*--}}
+               <a href="#{!! $usuario->email !!}" style="color: black;">   <button type="submit" class="tablinks" onclick="verMensajes(event, '{!! $usuario->email !!}')">{!! $usuario->name !!} {!! $usuario->apellido !!} <img src="images/mensajes/nuevo.png " style="    padding-left: 50px;" alt="">
+              </button></a>
 
 
     {!! Form::close() !!}
@@ -134,7 +136,9 @@
 						@endif
 				@endforeach
 				@if($sinLeer==0)
-				               <button class="tablinks" onclick="verMensajes(event, '{!! $usuario->email !!}')" >{!! $usuario->name !!} {!! $usuario->apellido !!}</button>
+
+				 {{--*/ $numeroUsuario =  $numeroUsuario + 1;  /*--}}
+				             <a href="#{!! $usuario->email !!}" style="color: black;">  <button class="tablinks" onclick="verMensajes(event, '{!! $usuario->email !!}')" >{!! $usuario->name !!} {!! $usuario->apellido !!}</button></a>
                 @endif
              @endif
           @endforeach
@@ -150,6 +154,7 @@
                 <div class="well text-center">No hay mensajes que mostrar</div>
                 @else
                       <div class="panelChat  col-sm-11" id="vistaChat">
+
                        <ol class="chat">
                             @foreach($mensajes as $mensaje)
 
@@ -178,6 +183,7 @@
                         </ol>
                        </div>
  @endif
+
         <div class="mensaje col-sm-8">
             @include('common.errors')
 
@@ -219,7 +225,7 @@
 
                 <!--- Submit  --->
                 <div class="form-group col-sm-2">
-                    {!! Form::submit('Enviar', ['class' => 'btn btn-primary']) !!}
+                  <button type="submit" class="tablinks" onclick="verMensajes(event, '{!!$correo !!}')" >Enviar</button>
                 </div>
 
 
@@ -252,8 +258,17 @@ function verMensajes(evt, correoUsuario) {
 }
 
  onload=function(){
-  ;   if(window.parar)return;document.getElementById('vistaChat').scrollTop=document.getElementById('vistaChat').scrollHeight;
+     if(window.parar)return;document.getElementById('vistaChat').scrollTop=document.getElementById('vistaChat').scrollHeight;
  }
+     var strHref = window.location.href;
+ var lines = strHref.split("#");
+ if(lines[1]==null){
+document.getElementById("{{$usuarioMensaje}}").style.display = "block";
+ } else {
+       document.getElementById(lines[1]).style.display = "block";
+}
+
+
 
 
 </script>

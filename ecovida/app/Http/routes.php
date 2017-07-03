@@ -66,6 +66,23 @@ Route::get('productos/{id}/delete', [
     'uses' => 'ProductoController@destroy',
 ]);
 
+Route::resource('ahorradores', 'AhorradorController');
+
+Route::get('ahorradores/{id}/delete', [
+    'as' => 'ahorradores.delete',
+    'uses' => 'AhorradorController@destroy',
+]);
+
+Route::resource('paneles', 'PanelController');
+
+Route::get('paneles/{id}/delete', [
+    'as' => 'paneles.delete',
+    'uses' => 'PanelController@destroy',
+]);
+
+
+
+
 
 
 
@@ -77,4 +94,44 @@ Route::resource('usuarios', 'UsuarioController');
 Route::get('usuarios/{id}/delete', [
     'as' => 'usuarios.delete',
     'uses' => 'UsuarioController@destroy',
+]);
+
+
+Route::resource('materials', 'MaterialController');
+
+Route::get('materials/{id}/delete', [
+    'as' => 'materials.delete',
+    'uses' => 'MaterialController@destroy',
+]);
+
+
+Route::resource('compras', 'CompraController');
+
+Route::get('compras/{id}/delete', [
+    'as' => 'compras.delete',
+    'uses' => 'CompraController@destroy',
+]);
+
+
+Route::resource('modelos', 'ModelosController');
+
+Route::get('modelos/{id}/delete', [
+    'as' => 'modelos.delete',
+    'uses' => 'ModelosController@destroy',
+]);
+
+
+Route::resource('fotosModelos', 'FotosModeloController');
+
+Route::get('fotosModelos/{id}/delete', [
+    'as' => 'fotosModelos.delete',
+    'uses' => 'FotosModeloController@destroy',
+]);
+
+
+Route::resource('materialesModelos', 'MaterialesModeloController');
+
+Route::get('materialesModelos/{id}/delete', [
+    'as' => 'materialesModelos.delete',
+    'uses' => 'MaterialesModeloController@destroy',
 ]);
