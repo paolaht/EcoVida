@@ -1,5 +1,6 @@
 @section('content')
 
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -49,41 +50,40 @@
                             @else
                             {{--*/ $sinLeer =  0;  /*--}}
 
-                            {{--
+
 
                             @foreach($mensajes as $mensaje)
                             @if(Auth::user()->tipo=="Cliente")
                             @if($mensaje->leido==0 && $mensaje->usuario==Auth::user()->email && $mensaje->tipo=="Admin")
 
-                            --}}
+
 
                             {{--*/ $sinLeer = $sinLeer +1;  /*--}}
 
-                              {{--
+
                             @endif
                             @else
                             @if($mensaje->leido==0 && $mensaje->tipo=="Cliente")
 
-                            --}}
+
 
                             {{--*/ $sinLeer = $sinLeer +1;  /*--}}
 
-                             {{--
+
                             @endif
                             @endif
                             @endforeach
 
-                              --}}
-                             {{--
+
                             @if($sinLeer==0)
                             <li class="sobre"><a href="{{ url('mensajes') }}"><img src="images/mensajes/mensaje0.png" alt=""> </a></li>
                             @endif
                             @if($sinLeer>=1)
 
-                            --}}
+
                             {{--*/ $prueba =  Auth::user()->email."*".Auth::user()->tipo;  /*--}}
 
-                             {{--
+
 
                             <li class="sobre">
                                 {!! Form::model($mensaje, ['route' => ['mensajes.update', $prueba], 'method' => 'patch']) !!}
@@ -99,10 +99,10 @@
 
 
                             @endif
---}}
+
                             <li class="usuario"><img src="images/user.png" alt=""></li>
                             <li ><a href=""> {{ Auth::user()->name }}</a></li>
-                            <li style="background: #009797;height: 54px;"><a href="{{ url('/auth/logout') }}">Cerrar Sesión</a></li>
+                            <li style="background: #009797;height: 54px;"><a href="URL::to('salir')">Cerrar Sesion</a></li>
 
 
                             <!--<li class="dropdown">-->
@@ -129,13 +129,28 @@
                     <li><a href="{{ url('contactos') }}">Contacto</a></li>
                     <li><a href="{{ url('alianzas') }}">Alianzas</a></li>
                     <li><p>PRODUCTOS</p></li>
-                    <li><a href="">Paneles solares</a></li>
-                    <li><a href="">Ahorradores de agua</a></li>
-                    <li><a href="">Ventas</a></li>
+                    <li><a href="{{ url('paneles') }}">Paneles solares</a></li>
+                    <li><a href="{{ url('ahorradores') }}">Ahorradores de agua</a></li>
+                    <li><a href="{{ url('compras') }}">Ventas</a></li>
+                    <li><a href="{{ url('mantenimientos') }}">Mantenimiento de productos</a></li>
                     <li><p>CONSTRUCTORA</p></li>
                     <li><a href="{{ url('materials') }}">Materiales</a></li>
                     <li><a href="{{ url('modelos') }}">Modelos</a></li>
+                    <li><a href="{{ url('productos') }}">Productos</a></li>
 
+                </ul>
+            </div>
+            @else
+            <div class="col-sm-2 vertical" >
+                <ul>
+                    <li><p> </p></li>
+                    <li><p>MODELOS DE CASA PARA CONSTRUCCIÓN </p></li>
+                    <li><a href="">Cotizar modelo</a></li>
+                    <li><a href="">Mis cotizaciones</a></li>
+                    <li><p>PRODUCTOS</p></li>
+                    <li><a href="">Productos de interes</a></li>
+                    <li><a href="">Mis compras</a></li>
+                    <li><a href="">Matenimientos</a></li>
                 </ul>
             </div>
             @endif

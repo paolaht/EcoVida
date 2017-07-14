@@ -6462,6 +6462,7 @@ div.panelMaterials {
 .materiales
 {
   overflow-y:scroll ;
+  overflow-x: hidden;
   height: 100%;
 }
 
@@ -6495,6 +6496,7 @@ div.panelMaterials {
     background: #FCFCFC;
 }
 
+
 .w-input {
     padding: 8px ;
     display: block;
@@ -6506,4 +6508,8 @@ div.panelMaterials {
 
 .fots{
   margin-bottom: 10px;
+}
+
+.fotografias{
+    border: 1px solid #D4D4D4;
 }

@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Controller\Auth;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -135,3 +135,24 @@ Route::get('materialesModelos/{id}/delete', [
     'as' => 'materialesModelos.delete',
     'uses' => 'MaterialesModeloController@destroy',
 ]);
+
+
+Route::resource('mantenimientos', 'MantenimientoController');
+
+Route::get('mantenimientos/{id}/delete', [
+    'as' => 'mantenimientos.delete',
+    'uses' => 'MantenimientoController@destroy',
+]);
+
+//Route::get('/login', 'App\Http\Controllers\AuthController@showLogin'); // Mostrar login
+//Route::post('/login', 'App\Http\Controllers\Auth\AuthController@postLogin'); // Verificar datos
+//Route::get('salir', 'Auth\AuthController@logout'); // Finalizar sesión
+
+//Route::get('salir', ['as' => 'users.updatePassword', 'uses' => 'UsersController@updatePassword']);
+//Route::get('salir' , ['as' => 'logout' , 'uses'=> 'Auth\AuthController@logOut']);
+//Route::get('salir', ['uses' => 'Auth\AuthController@logOut', 'before' => 'auth']);
+Route::get('salir', ['as' => 'salir', 'uses' => 'Auth\AuthController@logOut']);
+
+
+
+

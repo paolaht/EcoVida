@@ -35,4 +35,10 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
+	public function logOut (){
+		Auth::logout();
+		echo "Esta en logOut";
+		return Redirect::to('/')->with('error_message', 'Cerrado Correctamente');
+	}
+
 }

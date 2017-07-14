@@ -13,7 +13,7 @@
 
         <div class="row">
             @if($productos->isEmpty())
-                <div class="well text-center">No Productos found.</div>
+                <div class="well text-center">No Productos Encontrados.</div>
             @else
                 <table class="table">
                     <thead>

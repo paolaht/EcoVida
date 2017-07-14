@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateProductoRequest;
 use Illuminate\Http\Request;
 use App\Libraries\Repositories\ProductoRepository;
+use App\Libraries\Repositories\MensajeRepository;
 use Mitul\Controller\AppBaseController;
 use Response;
 use Flash;
@@ -17,9 +18,11 @@ class AhorradorController extends AppBaseController {
 
     /** @var  ProductoRepository */
     private $productoRepository;
+    private $mensajeRepository;
 
-    function __construct(ProductoRepository $productoRepo) {
+    function __construct(ProductoRepository $productoRepo, MensajeRepository $mensajeRepo) {
         $this->productoRepository = $productoRepo;
+        $this->mensajeRepository = $mensajeRepo;
     }
 
     /**
@@ -31,6 +34,7 @@ class AhorradorController extends AppBaseController {
      */
     public function index(Request $request) {
         $input = $request->all();
+        $mensajes = $this->metodoMensajes($request);
 
         $result = $this->productoRepository->search($input);
 
@@ -40,8 +44,8 @@ class AhorradorController extends AppBaseController {
 
         return view('productos.vistaAhorradores')
                         ->with('productos', $productos)
-                        ->with('attributes', $attributes);
-        ;
+                        ->with('attributes', $attributes)
+                        ->with('mensajes', $mensajes);
     }
 
     /**
@@ -49,8 +53,10 @@ class AhorradorController extends AppBaseController {
      *
      * @return Response
      */
-    public function create() {
-        return view('productos.create');
+    public function create(Request $request) {
+        $mensajes = $this->metodoMensajes($request);
+        return view('productos.create')
+        ->with('mensajes', $mensajes);
     }
 
     /**
@@ -108,7 +114,7 @@ class AhorradorController extends AppBaseController {
 
         $this->metodo($valorID);
 
-        return redirect(route('productos.index'));
+        return redirect(route('ahorradores.index'));
     }
 
     /**
@@ -118,16 +124,16 @@ class AhorradorController extends AppBaseController {
      *
      * @return Response
      */
-    public function show($id) {
+    public function show($id, Request $request) {
         $producto = $this->productoRepository->findProductoById($id);
-
+        $mensajes = $this->metodoMensajes($request);
         if (empty($producto)) {
             Flash::error('Producto not found');
-            return redirect(route('productos.index'));
+            return redirect(route('ahorradores.index'));
         }
 
         Flash::error('Producto ');
-        return view('productos.show')->with('producto', $producto);
+        return view('ahorradores.show')->with('producto', $producto)->with('mensajes', $mensajes);
     }
 
     /**
@@ -136,15 +142,17 @@ class AhorradorController extends AppBaseController {
      * @param  int  $id
      * @return Response
      */
-    public function edit($id) {
+    public function edit($id, Request $request) {
         $producto = $this->productoRepository->findProductoById($id);
+
+        $mensajes = $this->metodoMensajes($request);
 
         if (empty($producto)) {
             Flash::error('Producto not found');
-            return redirect(route('productos.index'));
+            return redirect(route('ahorradores.index'));
         }
 
-        return view('productos.edit')->with('producto', $producto);
+        return view('ahorradores.edit')->with('producto', $producto)->with('mensajes', $mensajes);
     }
 
     /**
@@ -157,17 +165,18 @@ class AhorradorController extends AppBaseController {
      */
     public function update($id, CreateProductoRequest $request) {
         $producto = $this->productoRepository->findProductoById($id);
+        $mensajes = $this->metodoMensajes($request);
 
         if (empty($producto)) {
             Flash::error('Producto not found');
-            return redirect(route('productos.index'));
+            return redirect(route('ahorradores.index'));
         }
 
         $producto = $this->productoRepository->update($producto, $request->all());
 
         Flash::message('Producto updated successfully.');
 
-        return redirect(route('productos.index'));
+        return redirect(route('ahorradores.index'));
     }
 
     /**
@@ -182,7 +191,7 @@ class AhorradorController extends AppBaseController {
 
         if (empty($producto)) {
             Flash::error('Producto not found');
-            return redirect(route('productos.index'));
+            return redirect(route('ahorradores.index'));
         }
 
         $producto->delete();
@@ -192,7 +201,7 @@ class AhorradorController extends AppBaseController {
 
         Flash::message('Producto deleted successfully.');
 
-        return redirect(route('productos.index'));
+        return redirect(route('ahorradores.index'));
     }
 
     function metodo($ID_Producto) {
@@ -246,6 +255,14 @@ class AhorradorController extends AppBaseController {
                 }
             }
         }
+    }
+
+     function metodoMensajes(Request $request) {
+         $input = $request->all();
+    	$result2 = $this->mensajeRepository->search($input);
+        $mensajes = $result2[0];
+
+        return $mensajes;
     }
 
 }

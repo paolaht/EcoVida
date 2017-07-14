@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateCompraRequest;
 use Illuminate\Http\Request;
 use App\Libraries\Repositories\CompraRepository;
+use App\Libraries\Repositories\MensajeRepository;
 use Mitul\Controller\AppBaseController;
 use Response;
 use Flash;
@@ -13,10 +14,13 @@ class CompraController extends AppBaseController
 
 	/** @var  CompraRepository */
 	private $compraRepository;
+    private $mensajeRepository;
 
-	function __construct(CompraRepository $compraRepo)
+
+	function __construct(CompraRepository $compraRepo, MensajeRepository $mensajeRepo)
 	{
 		$this->compraRepository = $compraRepo;
+		$this->mensajeRepository = $mensajeRepo;
 	}
 
 	/**
@@ -29,6 +33,7 @@ class CompraController extends AppBaseController
 	public function index(Request $request)
 	{
 	    $input = $request->all();
+	    $mensajes = $this->metodoMensajes($request);
 
 		$result = $this->compraRepository->search($input);
 
@@ -38,7 +43,8 @@ class CompraController extends AppBaseController
 
 		return view('compras.index')
 		    ->with('compras', $compras)
-		    ->with('attributes', $attributes);;
+		    ->with('attributes', $attributes)
+		    ->with('mensajes', $mensajes);
 	}
 
 	/**
@@ -46,9 +52,11 @@ class CompraController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
-		return view('compras.create');
+		$mensajes = $this->metodoMensajes($request);
+		return view('compras.create')
+		->with('mensajes', $mensajes);
 	}
 
 	/**
@@ -76,17 +84,17 @@ class CompraController extends AppBaseController
 	 *
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($id, Request $request)
 	{
 		$compra = $this->compraRepository->findCompraById($id);
-
+		$mensajes = $this->metodoMensajes($request);
 		if(empty($compra))
 		{
 			Flash::error('Compra not found');
 			return redirect(route('compras.index'));
 		}
 
-		return view('compras.show')->with('compra', $compra);
+		return view('compras.show')->with('compra', $compra)->with('mensajes', $mensajes);
 	}
 
 	/**
@@ -95,17 +103,17 @@ class CompraController extends AppBaseController
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($id, Request $request)
 	{
 		$compra = $this->compraRepository->findCompraById($id);
-
+		$mensajes = $this->metodoMensajes($request);
 		if(empty($compra))
 		{
 			Flash::error('Compra not found');
 			return redirect(route('compras.index'));
 		}
 
-		return view('compras.edit')->with('compra', $compra);
+		return view('compras.edit')->with('compra', $compra)->with('mensajes', $mensajes);
 	}
 
 	/**
@@ -119,6 +127,7 @@ class CompraController extends AppBaseController
 	public function update($id, CreateCompraRequest $request)
 	{
 		$compra = $this->compraRepository->findCompraById($id);
+		$mensajes = $this->metodoMensajes($request);
 
 		if(empty($compra))
 		{
@@ -156,5 +165,13 @@ class CompraController extends AppBaseController
 
 		return redirect(route('compras.index'));
 	}
+
+	 function metodoMensajes(Request $request) {
+         $input = $request->all();
+    	$result2 = $this->mensajeRepository->search($input);
+        $mensajes = $result2[0];
+
+        return $mensajes;
+    }
 
 }

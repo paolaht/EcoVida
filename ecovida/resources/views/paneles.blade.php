@@ -286,7 +286,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <p>&copy; 2016 EcoVida</p>
+                        <p>&copy; 2017 EcoVida</p>
                     </div>
                     <div class="col-sm-6">
                         <p class="pull-right"> <a href="http://designscrazed.org/"></a></p>

@@ -47,14 +47,8 @@ function addCampo() {
     container.appendChild(nDiv);
     //Create an input type dynamically.
     var br1 = document.createElement("br");
-    var br2 = document.createElement("br");
-    var br3 = document.createElement("br");
-    var br4 = document.createElement("br");
     var foo = document.getElementById("fooBar");
     foo.appendChild(br1);
-    foo.appendChild(br2);
-    foo.appendChild(br3);
-    foo.appendChild(br4);
 }
 //con esta función eliminamos el campo cuyo link de eliminación sea presionado
 var elimCamp = function (evt) {

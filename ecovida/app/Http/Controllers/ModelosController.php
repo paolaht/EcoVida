@@ -7,9 +7,12 @@ use App\Libraries\Repositories\MaterialRepository;
 use App\Libraries\Repositories\ModelosRepository;
 use Mitul\Controller\AppBaseController;
 use App\Libraries\Repositories\MensajeRepository;
+use App\Libraries\Repositories\FotosModeloRepository;
 use Response;
 use Flash;
-
+use storage;
+use DB;
+use App\Quotation;
 class ModelosController extends AppBaseController
 {
 
@@ -17,11 +20,13 @@ class ModelosController extends AppBaseController
 	private $modelosRepository;
 	private $mensajeRepository;
 		private $materialRepository;
-	function __construct(ModelosRepository $modelosRepo,MensajeRepository $mensajeRepo,MaterialRepository $materialRepo)
+		private $fotosModeloRepository;
+	function __construct(ModelosRepository $modelosRepo,MensajeRepository $mensajeRepo,MaterialRepository $materialRepo,FotosModeloRepository $fotosModeloRepo)
 	{
 		$this->modelosRepository = $modelosRepo;
 		$this->mensajeRepository = $mensajeRepo;
 		$this->materialRepository = $materialRepo;
+		$this->fotosModeloRepository = $fotosModeloRepo;
 	}
 
 	/**
@@ -82,11 +87,35 @@ class ModelosController extends AppBaseController
 	 */
 	public function store(CreateModelosRequest $request)
 	{
+
+
+		$modelo = $_POST["nombre"];
+		$foto = $_POST["foto1"];
+		if($foto<>null){
+		DB::insert('INSERT INTO `fotos_modelos`(`modelo`, `direccion`) VALUES (?, ?)', [$modelo, $foto]);
+		}
+		$foto = $_POST["foto2"];
+			if($foto<>null){
+		DB::insert('INSERT INTO `fotos_modelos`(`modelo`, `direccion`) VALUES (?, ?)', [$modelo, $foto]);
+		}
+			$foto = $_POST["foto3"];
+			if($foto<>null){
+		DB::insert('INSERT INTO `fotos_modelos`(`modelo`, `direccion`) VALUES (?, ?)', [$modelo, $foto]);
+		}
+			$foto = $_POST["foto4"];
+			if($foto<>null){
+		DB::insert('INSERT INTO `fotos_modelos`(`modelo`, `direccion`) VALUES (?, ?)', [$modelo, $foto]);
+		}
+			$foto = $_POST["foto5"];
+			if($foto<>null){
+		DB::insert('INSERT INTO `fotos_modelos`(`modelo`, `direccion`) VALUES (?, ?)', [$modelo, $foto]);
+		}
+
         $input = $request->all();
 
-		$modelos = $this->modelosRepository->store($input);
 
-		Flash::message('Modelos saved successfully.');
+
+		Flash::message('El modelo ha sido agregado correctamente');
 
 		return redirect(route('modelos.index'));
 	}

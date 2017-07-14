@@ -119,7 +119,7 @@
 
 
  {{--*/ $numeroUsuario =  $numeroUsuario + 1;  /*--}}
-               <a href="#{!! $usuario->email !!}" style="color: black;">   <button type="submit" class="tablinks" onclick="verMensajes(event, '{!! $usuario->email !!}')">{!! $usuario->name !!} {!! $usuario->apellido !!} <img src="images/mensajes/nuevo.png " style="    padding-left: 50px;" alt="">
+               <a href="#{!! $usuario->email !!}" style="color: red;">   <button type="submit" class="tablinks" onclick="verMensajes(event, '{!! $usuario->email !!}')">{!! $usuario->name !!} {!! $usuario->apellido !!}
               </button></a>
 
 
@@ -153,7 +153,7 @@
                           @if($mensajes->isEmpty())
                 <div class="well text-center">No hay mensajes que mostrar</div>
                 @else
-                      <div class="panelChat  col-sm-11" id="vistaChat">
+                      <div class="panelChat  col-sm-11" id="{!! $usuario->id !!}">
 
                        <ol class="chat">
                             @foreach($mensajes as $mensaje)
@@ -225,7 +225,7 @@
 
                 <!--- Submit  --->
                 <div class="form-group col-sm-2">
-                  <button type="submit" class="tablinks" onclick="verMensajes(event, '{!!$correo !!}')" >Enviar</button>
+                 <a href="#{!! $usuario->email !!}" style="color: black;"> <button type="submit" class="tablinks"  >Enviar</button></a>
                 </div>
 
 
@@ -254,12 +254,10 @@ function verMensajes(evt, correoUsuario) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(correoUsuario).style.display = "block";
-     if(window.parar)return;document.getElementById('vistaChat').scrollTop=document.getElementById('vistaChat').scrollHeight;
 }
 
  onload=function(){
-     if(window.parar)return;document.getElementById('vistaChat').scrollTop=document.getElementById('vistaChat').scrollHeight;
- }
+
      var strHref = window.location.href;
  var lines = strHref.split("#");
  if(lines[1]==null){
@@ -267,8 +265,9 @@ document.getElementById("{{$usuarioMensaje}}").style.display = "block";
  } else {
        document.getElementById(lines[1]).style.display = "block";
 }
-
-
-
+for (i = 0; i < 20; i++) {
+ if(window.parar)return;document.getElementById('{{i}}').scrollTop=document.getElementById('{{i}}').scrollHeight;
+}
+}
 
 </script>

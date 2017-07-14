@@ -6,9 +6,14 @@
 
         @include('flash::message')
 
+        <?php
+            session_start();
+            $_SESSION["tipo"] = "ahorrador";
+        ?>
+
         <div class="row">
             <h1 class="pull-left">Ahorradores</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('productos.create') !!}">Add New</a>
+            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('ahorradores.create') !!}">Add New</a>
         </div>
 
         <div class="row">
@@ -26,7 +31,7 @@
                     <tbody>
 
                     @foreach($productos as $producto)
-                      @if ($producto->tipo = 'ahorrador')
+                      @if ($producto->tipo == 'ahorrador')
                         <tr>
                     <td>{!! $producto->tipo !!}</td>
 					<td>{!! $producto->nombre !!}</td>
