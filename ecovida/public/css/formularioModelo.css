@@ -1,0 +1,30 @@
+.fotografias{
+    margin-top: 20px;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+#adjuntos {
+    margin-bottom: 20px;
+
+}
+
+#botonModelo{
+    margin:20px;
+}
+
+.cajaMaterial {
+    border-radius: 10px;
+}
+.panelMaterials{
+    border-radius: 10px;
+    margin: 15px
+}
+
+.archivo{
+    margin-top:10px;
+}
+
+.alinearH5{
+    margin-left:5px;
+}

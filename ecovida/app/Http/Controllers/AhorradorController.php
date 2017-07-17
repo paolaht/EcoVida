@@ -89,6 +89,22 @@ class AhorradorController extends AppBaseController {
           $Imagen->save();
 
          */
+
+/*
+         $rules = [
+
+        'nombre' => 'required',
+        'caracteristicas' => 'required',
+        'precio' => 'required'
+         ];
+
+         $this->validate($request, $rules);
+         */
+ //        $this->validate($request, [
+   //     'nombre' => 'required',
+     //   'caracteristicas' => 'required',
+       // 'precio' => 'required'
+//         ]);
         $tipo = $_POST["tipo"];
         $nombre = $_POST["nombre"];
         $caracteristicas = $_POST["caracteristicas"];
@@ -128,11 +144,9 @@ class AhorradorController extends AppBaseController {
         $producto = $this->productoRepository->findProductoById($id);
         $mensajes = $this->metodoMensajes($request);
         if (empty($producto)) {
-            Flash::error('Producto not found');
+            Flash::error('Ahorrador no encontrado');
             return redirect(route('ahorradores.index'));
         }
-
-        Flash::error('Producto ');
         return view('ahorradores.show')->with('producto', $producto)->with('mensajes', $mensajes);
     }
 
@@ -148,7 +162,7 @@ class AhorradorController extends AppBaseController {
         $mensajes = $this->metodoMensajes($request);
 
         if (empty($producto)) {
-            Flash::error('Producto not found');
+            Flash::error('Ahorrador no encontrado');
             return redirect(route('ahorradores.index'));
         }
 
@@ -168,13 +182,13 @@ class AhorradorController extends AppBaseController {
         $mensajes = $this->metodoMensajes($request);
 
         if (empty($producto)) {
-            Flash::error('Producto not found');
+            Flash::error('Ahorrador no encontrado');
             return redirect(route('ahorradores.index'));
         }
 
         $producto = $this->productoRepository->update($producto, $request->all());
 
-        Flash::message('Producto updated successfully.');
+        Flash::message('Ahorrador actualizado correctamente.');
 
         return redirect(route('ahorradores.index'));
     }
@@ -190,7 +204,7 @@ class AhorradorController extends AppBaseController {
         $producto = $this->productoRepository->findProductoById($id);
 
         if (empty($producto)) {
-            Flash::error('Producto not found');
+            Flash::error('Producto no encontrado');
             return redirect(route('ahorradores.index'));
         }
 
@@ -199,7 +213,7 @@ class AhorradorController extends AppBaseController {
         DB::table('imagens')->where("producto_ID", $id) ->delete();
 
 
-        Flash::message('Producto deleted successfully.');
+        Flash::message('Ahorrador eliminado correctamente.');
 
         return redirect(route('ahorradores.index'));
     }

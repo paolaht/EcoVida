@@ -16,7 +16,7 @@ class ContactoController extends AppBaseController
 	/** @var  ContactoRepository */
 	private $contactoRepository;
 	private $mensajeRepository;
-	
+
 	function __construct(ContactoRepository $contactoRepo,MensajeRepository $mensajeRepo)
 	{
 		$this->contactoRepository = $contactoRepo;
@@ -39,7 +39,7 @@ class ContactoController extends AppBaseController
 		$contactos = $result[0];
 
 		$attributes = $result[1];
-		
+
 		$input2 = $request->all();
 
 		$result2 = $this->mensajeRepository->search($input2);
@@ -47,7 +47,7 @@ class ContactoController extends AppBaseController
 		$mensajes = $result2[0];
 
 		$attributes = $result2[1];
-		
+
 		return view('contactos.index')
 			->with('mensajes', $mensajes)
 		    ->with('attributes', $attributes)
@@ -78,7 +78,7 @@ class ContactoController extends AppBaseController
 
 		$contacto = $this->contactoRepository->store($input);
 
-		Flash::message('Contacto saved successfully.');
+		Flash::message('Contacto guardado satisfactoriamente.');
 
 		return redirect(route('contactos.index'));
 	}
@@ -96,7 +96,7 @@ class ContactoController extends AppBaseController
 
 		if(empty($contacto))
 		{
-			Flash::error('Contacto not found');
+			Flash::error('Contacto no encontrado');
 			return redirect(route('contactos.index'));
 		}
 
@@ -124,7 +124,7 @@ class ContactoController extends AppBaseController
 
 		if(empty($contacto))
 		{
-			Flash::error('Contacto not found');
+			Flash::error('Contacto no encontrado');
 			return redirect(route('contactos.index'));
 		}
 
@@ -146,12 +146,12 @@ class ContactoController extends AppBaseController
 
 		if(empty($contacto))
 		{
-			Flash::error('Contacto not found');
+			Flash::error('Contacto no encontrado');
 			return redirect(route('contactos.index'));
 		}
 		$contacto = $this->contactoRepository->update($contacto, $request->all());
 
-		Flash::message('Contacto updated successfully.');
+		Flash::message('Contacto actualizado con exito.');
 
 		return redirect(route('contactos.index'));
 	}
@@ -169,13 +169,13 @@ class ContactoController extends AppBaseController
 
 		if(empty($contacto))
 		{
-			Flash::error('Contacto not found');
+			Flash::error('Contacto no encontrado');
 			return redirect(route('contactos.index'));
 		}
 
 		$contacto->delete();
 
-		Flash::message('Contacto deleted successfully.');
+		Flash::message('Contacto eliminado con exito.');
 
 		return redirect(route('contactos.index'));
 	}

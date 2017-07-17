@@ -6444,7 +6444,8 @@ button.accordion.active:after {
 div.panelMaterials {
     padding: 10px;
     background-color: white;
-    max-height: 140px;
+ /*   max-height: 140px;
+ */
     height: 140px;
     margin-bottom: 10px;
     border: 1px solid #D4D4D4;

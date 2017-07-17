@@ -129,11 +129,9 @@ class PanelController extends AppBaseController {
         $mensajes = $this->metodoMensajes($request);
 
         if (empty($producto)) {
-            Flash::error('Producto not found');
+            Flash::error('Panel no encontrado');
             return redirect(route('productos.index'));
         }
-
-        Flash::error('Producto ');
         return view('paneles.show')->with('producto', $producto)->with('mensajes', $mensajes);
     }
 
@@ -149,7 +147,7 @@ class PanelController extends AppBaseController {
         $mensajes = $this->metodoMensajes($request);
 
         if (empty($producto)) {
-            Flash::error('Producto not found');
+            Flash::error('Panel no encontrado');
             return redirect(route('productos.index'));
         }
 
@@ -168,13 +166,13 @@ class PanelController extends AppBaseController {
         $producto = $this->productoRepository->findProductoById($id);
 
         if (empty($producto)) {
-            Flash::error('Producto not found');
+            Flash::error('Panel no encontrado');
             return redirect(route('productos.index'));
         }
 
         $producto = $this->productoRepository->update($producto, $request->all());
 
-        Flash::message('Producto updated successfully.');
+        Flash::message('Panel actualizado correctamente.');
 
         return redirect(route('paneles.index'));
     }
@@ -190,7 +188,7 @@ class PanelController extends AppBaseController {
         $producto = $this->productoRepository->findProductoById($id);
 
         if (empty($producto)) {
-            Flash::error('Producto not found');
+            Flash::error('Panel no encontrado');
             return redirect(route('productos.index'));
         }
 
@@ -199,7 +197,7 @@ class PanelController extends AppBaseController {
         DB::table('imagens')->where("producto_ID", $id) ->delete();
 
 
-        Flash::message('Producto deleted successfully.');
+        Flash::message('Panel eliminado correctamente.');
 
         return redirect(route('paneles.index'));
     }

@@ -132,7 +132,7 @@ class ProductoController extends AppBaseController {
         $mensajes = $this->metodoMensajes($request);
 
         if (empty($producto)) {
-            Flash::error('Producto not found');
+            Flash::error('Producto no encontrado');
             return redirect(route('productos.index'));
         }
 
@@ -152,7 +152,7 @@ class ProductoController extends AppBaseController {
         $mensajes = $this->metodoMensajes($request);
 
         if (empty($producto)) {
-            Flash::error('Producto not found');
+            Flash::error('Producto no encontrado');
             return redirect(route('productos.index'));
         }
 
@@ -171,13 +171,13 @@ class ProductoController extends AppBaseController {
         $producto = $this->productoRepository->findProductoById($id);
 
         if (empty($producto)) {
-            Flash::error('Producto not found');
+            Flash::error('Producto no encontrado');
             return redirect(route('productos.index'));
         }
 
         $producto = $this->productoRepository->update($producto, $request->all());
 
-        Flash::message('Producto updated successfully.');
+        Flash::message('Producto actualizado correctamente.');
 
         return redirect(route('productos.index'));
     }
@@ -193,7 +193,7 @@ class ProductoController extends AppBaseController {
         $producto = $this->productoRepository->findProductoById($id);
 
         if (empty($producto)) {
-            Flash::error('Producto not found');
+            Flash::error('Producto no encontrado');
             return redirect(route('productos.index'));
         }
 
@@ -202,7 +202,7 @@ class ProductoController extends AppBaseController {
         DB::table('imagens')->where("producto_ID", $id) ->delete();
 
 
-        Flash::message('Producto deleted successfully.');
+        Flash::message('Producto eliminado correctamente.');
 
         return redirect(route('productos.index'));
     }

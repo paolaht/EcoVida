@@ -51,9 +51,6 @@
                     //            $ruta_imgen = 'images/IMG_Productos/Imagen';
 
 
-
-
-
                                 if ($Identificador_imag == '') {
                                     //header("Location: consulta_incidente.php"); // aca lo que pregunto es si la lista se encuentra en blanco y no retorno ningun resultado entonces me envie a una pagina que indique que la lista esta en blanco.
                                     $BusquedaVasia = "No hay imagenes disponibles para mostrar.";

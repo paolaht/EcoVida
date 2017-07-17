@@ -63,6 +63,8 @@ class MaterialesModeloRepository
 	{
 		return MaterialesModelo::find($id);
 	}
+	
+
 
 	/**
 	 * Updates MaterialesModelo into database

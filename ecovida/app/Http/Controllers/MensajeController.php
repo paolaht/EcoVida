@@ -88,7 +88,7 @@ class MensajeController extends AppBaseController
 
 		if(empty($mensaje))
 		{
-			Flash::error('Mensaje not found');
+			Flash::error('Mensaje no encontrado');
 			return redirect(route('mensajes.index'));
 		}
 
@@ -122,9 +122,9 @@ class MensajeController extends AppBaseController
 		$mensaje = $this->mensajeRepository->update($prueba);
 			$lines = preg_split('/[*]+/', $prueba);
 $correo =$lines[0];
-	Flash::message('En contenido se ha actualizado correctamente');
+	Flash::message('El contenido se ha actualizado correctamente');
 	   	$mensajes = $this->mensajeRepository->all();
-		Flash::message('Mensaje saved successfully.');
+		Flash::message('Mensaje guardado correctamente.');
 	$usuarios = User::all();
 		return view('mensajes.index')
 		    ->with('usuarios',$usuarios)
@@ -136,7 +136,7 @@ $correo =$lines[0];
 	 * Remove the specified Mensaje from storage.
 	 *
 	 * @param  int $id
-	 *	
+	 *
 	 * @return Response
 	 */
 	public function destroy($id)
@@ -145,13 +145,13 @@ $correo =$lines[0];
 
 		if(empty($mensaje))
 		{
-			Flash::error('Mensaje not found');
+			Flash::error('Mensaje no encontrado');
 			return redirect(route('mensajes.index'));
 		}
 
 		$mensaje->delete();
 
-		Flash::message('Mensaje deleted successfully.');
+		Flash::message('Mensaje eliminado correctamente.');
 
 		return redirect(route('mensajes.index'));
 	}

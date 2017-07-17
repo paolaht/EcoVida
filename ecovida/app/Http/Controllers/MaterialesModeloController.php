@@ -101,7 +101,7 @@ class MaterialesModeloController extends AppBaseController
 
 		if(empty($materialesModelo))
 		{
-			Flash::error('MaterialesModelo not found');
+			Flash::error('MaterialesModelo no encontrado');
 			return redirect(route('materialesModelos.index'));
 		}
 
@@ -122,13 +122,13 @@ class MaterialesModeloController extends AppBaseController
 
 		if(empty($materialesModelo))
 		{
-			Flash::error('MaterialesModelo not found');
+			Flash::error('MaterialesModelo no encontrado');
 			return redirect(route('materialesModelos.index'));
 		}
 
 		$materialesModelo = $this->materialesModeloRepository->update($materialesModelo, $request->all());
 
-		Flash::message('MaterialesModelo updated successfully.');
+		Flash::message('MaterialesModelo actualizado correctamente.');
 
 		return redirect(route('materialesModelos.index'));
 	}
@@ -146,13 +146,13 @@ class MaterialesModeloController extends AppBaseController
 
 		if(empty($materialesModelo))
 		{
-			Flash::error('MaterialesModelo not found');
+			Flash::error('MaterialesModelo no encontrado');
 			return redirect(route('materialesModelos.index'));
 		}
 
 		$materialesModelo->delete();
 
-		Flash::message('MaterialesModelo deleted successfully.');
+		Flash::message('MaterialesModelo eliminado de forma correcta.');
 
 		return redirect(route('materialesModelos.index'));
 	}

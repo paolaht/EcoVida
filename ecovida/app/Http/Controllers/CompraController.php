@@ -72,7 +72,7 @@ class CompraController extends AppBaseController
 
 		$compra = $this->compraRepository->store($input);
 
-		Flash::message('Compra saved successfully.');
+		Flash::message('Compra guardada correctamente.');
 
 		return redirect(route('compras.index'));
 	}

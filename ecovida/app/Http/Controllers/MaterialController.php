@@ -111,7 +111,7 @@ class MaterialController extends AppBaseController
 
 		if(empty($material))
 		{
-			Flash::error('Material not found');
+			Flash::error('Material no encontrado');
 			return redirect(route('materials.index'));
 		}
 
@@ -132,13 +132,13 @@ class MaterialController extends AppBaseController
 
 		if(empty($material))
 		{
-			Flash::error('Material not found');
+			Flash::error('Material no encontrado');
 			return redirect(route('materials.index'));
 		}
 
 		$material = $this->materialRepository->update($material, $request->all());
 
-		Flash::message('Material updated successfully.');
+		Flash::message('Material actualizado de forma correcta.');
 
 		return redirect(route('materials.index'));
 	}
@@ -156,13 +156,13 @@ class MaterialController extends AppBaseController
 
 		if(empty($material))
 		{
-			Flash::error('Material not found');
+			Flash::error('Material no encontrado');
 			return redirect(route('materials.index'));
 		}
 
 		$material->delete();
 
-		Flash::message('Material deleted successfully.');
+		Flash::message('Material eliminado de forma correcta.');
 
 		return redirect(route('materials.index'));
 	}

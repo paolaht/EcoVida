@@ -24,6 +24,7 @@
                 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
                 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+
     </head>
     <body>
         <div class="fijo">
@@ -36,7 +37,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand titulo" href="{{ url('welcome') }}">EcoVida</a>
+                        <a class="navbar-brand titulo" href="{{ url('/principal') }}">EcoVida</a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -55,7 +56,6 @@
                             @foreach($mensajes as $mensaje)
                             @if(Auth::user()->tipo=="Cliente")
                             @if($mensaje->leido==0 && $mensaje->usuario==Auth::user()->email && $mensaje->tipo=="Admin")
-
 
 
                             {{--*/ $sinLeer = $sinLeer +1;  /*--}}
@@ -88,10 +88,7 @@
                             <li class="sobre">
                                 {!! Form::model($mensaje, ['route' => ['mensajes.update', $prueba], 'method' => 'patch']) !!}
 
-
                                 <a href="{{ url('mensajes') }}"  style="padding-bottom: 0;"><button type="submit" style="background: none;border: none;margin-top: 25%;"><img src="images/mensajes/mensaje1.png" alt=""> </button></a>
-
-
 
                                 {!! Form::close() !!}
 
@@ -99,11 +96,20 @@
 
 
                             @endif
-
+                            <?php
+                            $src = 'images/user.png';
+                            if (is_file($src) && file_exists($src)) {
+                                ?>
                             <li class="usuario"><img src="images/user.png" alt=""></li>
+                            <?php } else {
+                                ?>
+                                <li class="usuario"><img src="../images/user.png" alt=""></li>
+                                <?php
+                            }
+                                ?>
                             <li ><a href=""> {{ Auth::user()->name }}</a></li>
-                            <li style="background: #009797;height: 54px;"><a href="URL::to('salir')">Cerrar Sesion</a></li>
-
+<!--                            <li style="background: #009797;height: 54px;"><a href="URL::to('/auth/logout')">Cerrar Sesion</a></li>  -->
+                           <li style="background: #009797;height: 54px;"><a href="{{ url('auth/logout') }}">Cerrar Sesion</a></li>
 
                             <!--<li class="dropdown">-->
                             <!--	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>-->
@@ -131,12 +137,15 @@
                     <li><p>PRODUCTOS</p></li>
                     <li><a href="{{ url('paneles') }}">Paneles solares</a></li>
                     <li><a href="{{ url('ahorradores') }}">Ahorradores de agua</a></li>
-                    <li><a href="{{ url('compras') }}">Ventas</a></li>
+            <!--        <li><a href="{{ url('compras') }}">Ventas</a></li>
                     <li><a href="{{ url('mantenimientos') }}">Mantenimiento de productos</a></li>
+                    -->
                     <li><p>CONSTRUCTORA</p></li>
                     <li><a href="{{ url('materials') }}">Materiales</a></li>
-                    <li><a href="{{ url('modelos') }}">Modelos</a></li>
-                    <li><a href="{{ url('productos') }}">Productos</a></li>
+                    <li><a href="{{ url('cotizacions') }}">Modelos</a></li>
+                    <li><a href="{{ url('modelos') }}">Crear modelo</a></li>
+    <!--                <li><a href="{{ url('productos') }}">Productos</a></li>
+    -->
 
                 </ul>
             </div>
@@ -145,8 +154,8 @@
                 <ul>
                     <li><p> </p></li>
                     <li><p>MODELOS DE CASA PARA CONSTRUCCIÓN </p></li>
-                    <li><a href="">Cotizar modelo</a></li>
-                    <li><a href="">Mis cotizaciones</a></li>
+                    <li><a href="{{ url('cotizacions') }}">Cotizar modelo</a></li>
+                    <li><a href="{{ url('vistaCotizacions') }}">Mis cotizaciones</a></li>
                     <li><p>PRODUCTOS</p></li>
                     <li><a href="">Productos de interes</a></li>
                     <li><a href="">Mis compras</a></li>

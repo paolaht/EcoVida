@@ -144,15 +144,16 @@ Route::get('mantenimientos/{id}/delete', [
     'uses' => 'MantenimientoController@destroy',
 ]);
 
-//Route::get('/login', 'App\Http\Controllers\AuthController@showLogin'); // Mostrar login
-//Route::post('/login', 'App\Http\Controllers\Auth\AuthController@postLogin'); // Verificar datos
-//Route::get('salir', 'Auth\AuthController@logout'); // Finalizar sesión
+Route::resource('cotizacions', 'CotizacionController');
 
-//Route::get('salir', ['as' => 'users.updatePassword', 'uses' => 'UsersController@updatePassword']);
-//Route::get('salir' , ['as' => 'logout' , 'uses'=> 'Auth\AuthController@logOut']);
-//Route::get('salir', ['uses' => 'Auth\AuthController@logOut', 'before' => 'auth']);
-Route::get('salir', ['as' => 'salir', 'uses' => 'Auth\AuthController@logOut']);
+Route::get('cotizacions/{id}/delete', [
+    'as' => 'cotizacions.delete',
+    'uses' => 'CotizacionController@destroy',
+]);
 
+Route::resource('vistaCotizacions', 'VistaCotizacionController');
 
-
-
+Route::get('vistaCotizacions/{id}/delete', [
+    'as' => 'vistaCotizacions.delete',
+    'uses' => 'VistaCotizacionController@destroy',
+]);

@@ -1,6 +1,14 @@
 @extends('app')
 <script type="text/javascript" src="../js/subirCosas.js"></script>
 
+
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
+
+<script type="text/javascript" src="../js/validacionBootstrap.js"></script>
 <body>
 
 
@@ -26,6 +34,9 @@
         ?>
 
 
+
+
+
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h1>Crear Nuevo Producto</h1>
@@ -33,11 +44,23 @@
         <!--   <form class="form-horizontal" action="guardarProductoYImagenes.php" method="GET" enctype="multipart/form-data" id="producto_form"> -->
 
 
+
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $er)
+                        <li>{{$er}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
         @if ($tipo === 'ahorrador')
 
-               {!! Form::open(['route' => 'ahorradores.store', 'enctype'=>'multipart/form-data']) !!}
+               {!! Form::open(['route' => 'ahorradores.store', 'enctype'=>'multipart/form-data', 'data-toggle'=>'validator', 'id'=>'formSUPER']) !!}
        @else
-            {!! Form::open(['route' => 'paneles.store', 'enctype'=>'multipart/form-data']) !!}
+            {!! Form::open(['route' => 'paneles.store', 'enctype'=>'multipart/form-data', 'data-toggle'=>'validator', 'id'=>'formSUPER']) !!}
        @endif
 
   {{--

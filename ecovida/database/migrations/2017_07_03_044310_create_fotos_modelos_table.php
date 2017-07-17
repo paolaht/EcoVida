@@ -18,6 +18,8 @@ class CreateFotosModelosTable extends Migration
 			$table->increments('id');
 			$table->string('modelo');
 			$table->string('direccion');
+			$table->integer('modelo_ID');
+
 			$table->timestamps();
 		});
 	}
